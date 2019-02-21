@@ -72,7 +72,7 @@ dsn_eno
  |---------> F3: Using a more systematic reward function (REWARD FUNCTION 2)
  |
  |
-all_spark :MAJOR BLUNDER IN DEFINING ENP
+all_spark :MAJOR BLUNDER IN DEFINING ENP for Reward Function 1
  |
  |
 no_spark

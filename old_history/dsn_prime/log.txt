@@ -1,0 +1,268 @@
+A - Inital Weights=normal(0.01)
+    LR=0.0001
+    Target Update=18 months
+    WIDTH=20
+    DEPTH=1
+    ITERATION=20
+    TRAINING : ONLY Tokyo 2009
+#Weights explode to (-4,4)
+#Seeds affect performance
+#Increasing iterations to 50 causes further instability. Weights explode to (-10,20)
+
+A -> B - GPU and CPU implementations
+
+B -> C - target update = 1 month, Memory = 2 year
+#weights explode to (-15,10)
+
+C -> D - weight regularization at 1E-5
+# did not help much
+#weights explode to (-15,10)
+
+D -> E - weight regularization at 1E-3
+# much better performance
+
+E -> F - include forecast
+
+F - milestone achievement: ENO is achieved when battery is reset to BOPT everyday for Tokyo 2009
+F -> F1 - violation penalty increased to -3
+F1 -> F2 - train using Tokyo, Minamidaito, Wakkanai for all years 2005-2015
+F2 -> F3 - target update at 18 months
+F3 -> F4 - battery is reset ONLY when limits are reached
+F4 -> F5 - no battery reset at all
+
+G - train using only Tokyo [2000-2015], battery is reset to BOPT everyday
+F2 -> G -  target update = 18 months, 
+G -> G1 - target update = 1 month
+G -> G2 - target update = 6 month
+G -> G3 - target update = 12 month
+
+F4 -> H - train using only Tokyo [2000-2015], battery is reset ONLY when limits are reached, target update = 18 months, 
+H -> H1 - target update = 1 month
+H -> H2 - target update = 6 months
+H -> H3 - target update = 12 months
+H -> H4 - target update = 1 week
+#target update doesn't make any drastic difference
+
+
+
+F1 -> I - train using only Tokyo 2009, battery is reset ONLY when limits are reached, target update = 18 months
+I -> I1 - target update = 1 month
+I -> I2 - target update = 6 months
+I -> I3 -  target update = 12 months
+I -> I4 - target update = 1 week
+#target update doesn't make any drastic difference
+#1 week seems a bit unstable
+
+
+I -> J - train using only Tokyo 2009, battery is never reset, target update = 18 months
+J -> J1 - target update = 1 month
+J -> J2 - target update = 6 month
+J -> J3 - target update = 12 month
+J -> J4 - target update = 1 week
+J -> J5 - target update = 2 years
+#1 week is unstable
+#18 months seems most stable
+# violation instances need to be identified and punished severely
+
+J -> K - change reward function to identify and punish violation instances
+# network cannot seem to pre-decrease battery level in anticipation of a sunny day
+K:        LR=0.001, WIDTH=20, DEPTH = 1
+K -> K1 - LR=0.01,  WIDTH=20, DEPTH = 1 #unstable. Not Recommended
+K -> K2 - LR=0.001, WIDTH=50, DEPTH = 1  
+K -> K3 - LR=0.001, WIDTH=20, DEPTH = 2 
+K -> K4 - LR=0.001, WIDTH=100, DEPTH = 1
+
+#K2 seems to have better performance compared to K, may require longer training
+#K3 has worse performance compared to K but promises to be smarter.
+#K4 has even worse performance compared to K but maybe due to lack of training
+
+K2 [50 iterations]: LR=0.001, WIDTH=50, DEPTH = 1
+K3 [50 iterations]: LR=0.001, WIDTH=20, DEPTH = 2
+K4 [50 iterations]: LR=0.001, WIDTH=100, DEPTH = 1
+#K3 seems to perform best
+
+K -> K_small - SMAX = 500, senergy is not mulitplied by 2 #to check if the given environment is impossible to solve
+#K_small is pretty successful in learning when battery is reset whenever is violated
+#IMPORTANT: EPSILON = 0.9 causes a significant amount of battery violations. So, separate greedy validation is required.
+
+K -> K_large - SMAX = 1000, senergy is mulitplied by 4 #to check if the given environment is impossible to solve
+#Doesn't work too well
+
+K-Copy1 -> Fixed small bug concerning day_violation in reward function. Checking if that makes a major difference.
+# It does make a difference - not very critical but the policy is much more intelligent and bettery performing.
+
+
+K3 -> L -           LR=0.001, WIDTH=20, DEPTH = 2, 
+                    battery is never reset, 
+                    target update = 18 months,
+                    ITERATIONS = 50,
+                    train using only TOKYO [2000 - 2010],
+                    validation using TOKYO [2011 - 2018]
+                    fixed reward function bug
+#works fine but still has a quite a few number of violations
+
+K3 -> L_small -     LR=0.001, WIDTH=20, DEPTH = 2, 
+                    battery is never reset, 
+                    target update = 18 months,
+                    ITERATIONS = 50,
+                    train using only TOKYO [2000 - 2010],
+                    validation using TOKYO [2011 - 2018],
+                    ENO_SMALL
+                    have not fixed reward function bug
+L_small -> L_small-Copy1 - fixed bug in reward function
+#does not make a major difference during validation
+#L and L_small work okay in spite of bug         
+#L_small has good performance in spite of the bug
+#L_small has good performance with different seeds
+
+K3 -> L_large -     LR=0.001, WIDTH=20, DEPTH = 2, 
+                    battery is never reset, 
+                    target update = 18 months,
+                    ITERATIONS = 50,
+                    train using only TOKYO [2000 - 2010],
+                    validation using TOKYO [2011 - 2018],
+                    ENO_LARGE
+                    fixed reward function bug
+#L_large has bad performance when the reward function bug is present
+                    
+
+
+SWITCHING TO REWARD FUNCTION 2
+L -> M  LR=0.001, 
+        WIDTH=20, 
+        DEPTH = 2, 
+        battery is never reset, 
+        target update = 18 months,
+        ITERATIONS = 50,
+        - train and test using only Tokyo 2009
+        - use REWARD FUNCTION 2
+# works pretty well
+
+M -> N - train using Tokyo [2000-2010]
+#works very good
+#other seeds give bad performance
+#weights are not evenly distributed
+* might have to change greedy value and learning rate
+
+M -> O - train using Tokyo [2000-2010], WIDTH=50, DEPTH=2
+#works acceptably
+#seed 0,1,2 -OK. seed3 - NG
+
+M -> P - WIDTH=50, DEPTH=1
+#train with Tokyo 2009 only
+#works just ok
+##changed - reexperimenting
+#train using Tokyo [2000-2010]
+#doesn't work any better than O
+#weights seem to explode
+-> Decreasing the depth (removing hidden layer) is not recommended
+
+
+M -> Q - WIDTH=100, DEPTH=1
+#train with Tokyo 2009 only
+#works ok. Better than P. Not better than O.
+# seeds do not increase or decrease performance
+#changed - reexperimenting
+#train using Tokyo [2000-2010]
+# one seed works good. The others work very bad
+# doesn't work as good as O or P. Very bad performance
+-> Increasing the width cannot compensate for decresing depth
+
+M -> R - WIDTH=20, DEPTH=3
+#train with Tokyo 2009 only
+#works very good. Much better than O.
+#acceptable performance with all seeds
+#changed - reexperimenting
+#train using Tokyo [2000-2010]
+#seed changes performance.
+# best seed is a little worse than O
+# worst seed is much worse than P
+# weights don't seem to be evenly distributed
+
+R -> R_small - very bad performance cannot learn
+
+-> The results vary a lot due to bootstrapping effects. 
+The memories gathered depend on the learnt policy which in turn affects the learned policy which affects the memory.
+
+R -> S - WIDTH=20, DEPTH=3
+         Tokyo [2000-2010] with occasionaly battery reset (50%)
+#not very good results. Performance decreases after 10 iterations
+         
+R_small -> S_small - WIDTH=20, DEPTH=3
+                     Tokyo [2000-2010] with occasionaly battery reset (50%)
+#cannot recover from dead battery. very bad performance                     
+
+S -> T - WIDTH=50,DEPTH=3
+         Tokyo [2000-2010] with occasionaly battery reset (50%)
+#seems to have good performance
+#Input layer and FC1 have uneven weight distribution
+
+         
+S -> U - WIDTH=20,DEPTH=2 #similar to N
+         Tokyo [2000-2010] with occasionaly battery reset (50%)
+#U has bad perfomance. Cannot seem to recover from dead battery
+         
+S -> V - WIDTH=50,DEPTH=2 #similar to O
+         Tokyo [2000-2010] with occasionaly battery reset (50%)
+
+#V has much better performance that S,T and U
+#Resetting battery 50% of the time seems to be spoon feeding the NN, leading to non-robust policies
+
+
+#Changing to resetting the battery only (1-EPSILON)% of the time
+S_small - WIDTH=20,DEPTH=3
+#cannot learn a good enough policy. BAD performance. Lots of battery violations
+
+S - WIDTH=20,DEPTH=3
+#has good performance but not very robust.
+#maybe if help was removed after a few iterations, it would work very well.
+
+T - WIDTH=50,DEPTH=3
+#NG performance. Seeds make little difference. All layers except Output Layer have uneven distribution of weights
+#bad performance probably due too many parameters to learn
+
+U - WIDTH=20,DEPTH=2
+#NG performance. Lots of battery overflows for seed0
+#very good performance for seed2
+
+V - WIDTH=50,DEPTH=2
+#okay performance but not yet acceptable
+#is robust enough to deal with battery exhaustions
+#kind of unstable output graph
+
+Using U as a checkpoint.
+U -> W :EPSILON = 0.95
+#doesn't work very well
+
+U -> X: removing reward broadcast
+#works pretty well considering the reward is not broadcast
+
+X -> X1 : DEPTH = 3
+#X1 seems very good. Seeding doesn't seem to make much difference
+#Learning is a bit erratic and weights don't seem to be evenly distributed
+
+X -> Y: HELP=0.9
+        EPSILON=0.95
+#Y does not have as good a performance.
+
+X- > Y_VG:  HELP=0.9
+            EPSILON=0.5,0.9
+#Very good performance
+
+-> Y has better convergence and average reward than Y_VG but worse performance.
+
+X -> Y2: HELP=0.9
+         EPSILON=0.5,0.95
+#         
+         
+         
+#recheck reward function magnitude
+
+            
+
+
+
+Fx -> increase width
+Fx -> increase depth
+Fx -> no reward broadcast
+

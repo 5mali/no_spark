@@ -1,0 +1,1085 @@
+SPEED TEST with 0U
+
+SETI    (CPU): 0:15:20.072224
+SETI    (GPU): --------------
+
+POMPP06 (CPU): 0:13:47.299369
+POMPP06 (GPU): 0:23:20.984183
+**************************************************************
+
+dsn_prime(U-seed0) -> 0U
+MODEL   :   0U : INPUT->FC1->FC2->RELU->OUT
+
+LEARNING:   INIT_WEIGHT     = normal(0.01)
+            WIDTH           = 20
+            DEPTH           = 2
+            WEIGHT_DECAY    = 1E-3
+            LR              = 0.001
+            UPDATE_FREQ     = 18 MONTHS
+            MEMORY          = 24 MONTHS
+            ITERATION       = 50
+            BATCH_SIZE      = 32
+            EPSILON         = 0.5, 0.9              
+            GAMMA           = 0.9                
+            LAMBDA          = 0.9  
+TRAINING:   TOKYO[2000-2010]
+            BATTERY_RESET    = (1 - 0.9)%
+            REWARD_FUNC      = TYPE2
+            REWARD_BROADCAST = TRUE
+TESTING:    TOKYO[2011-2018]
+            GREEDY POLICY
+
+RESULTS:
+#Weights are evenly distributed with some spikes
+SEED 0
+YEAR		AVG_RWD		VIOLATIONS
+2011 		 0.33 		 95
+2012 		 0.14 		 109
+2013 		 0.22 		 108
+2014 		 -0.29 		 140
+2015 		 0.37 		 94
+2016 		 0.58 		 81
+2017 		 0.24 		 100
+2018 		 0.19 		 107
+
+SEED 1
+#the learning curve is not flat
+YEAR		AVG_RWD		VIOLATIONS
+2011 		 1.12 		 24
+2012 		 1.0 		 26
+2013 		 1.03 		 31
+2014 		 0.91 		 33
+2015 		 1.02 		 27
+2016 		 1.08 		 19
+2017 		 0.95 		 31
+2018 		 0.99 		 34
+
+**SEED 2
+YEAR		AVG_RWD		VIOLATIONS
+2011 		 1.33 		 0
+2012 		 1.34 		 1
+2013 		 1.38 		 0
+2014 		 1.27 		 1
+2015 		 1.35 		 0
+2016 		 1.34 		 2
+2017 		 1.33 		 1
+2018 		 1.33 		 2
+*************************************************************
+dsn_prime(U-seed0) -> 0U -> A
+HYPOTHESIS:
+# A stronger reward signal might improve performance.
+# Make rewards stronger by exponential multiplication rather than by addition
+
+MODEL   :   A : INPUT->FC1->FC2->RELU->OUT
+
+
+LEARNING:   INIT_WEIGHT     = normal(0.01)
+            WIDTH           = 20
+            DEPTH           = 2
+            WEIGHT_DECAY    = 1E-3
+            LR              = 0.001
+            UPDATE_FREQ     = 18 MONTHS
+            MEMORY          = 24 MONTHS
+            ITERATION       = 50
+            BATCH_SIZE      = 32
+            EPSILON         = 0.9              
+            GAMMA           = 0.9                
+            LAMBDA          = 0.9  
+TRAINING:   TOKYO[2000-2010]
+            BATTERY_RESET    = 0 %
+            REWARD_FUNC      = TYPE2
+                               violation_penalty = 3
+                               R = r1*(2**r2) - violation_penalty
+            REWARD_BROADCAST = TRUE
+TESTING:    TOKYO[2011-2018]
+            GREEDY POLICY
+
+NOTES:      
+
+RESULTS:
+# Weights are quite evenly distributed. Some spikes present.
+
+SEED 0
+YEAR		AVG_RWD		VIOLATIONS
+2011 		 1.42 		 3
+2012 		 1.26 		 7
+2013 		 1.29 		 11
+2014 		 1.3 		 4
+2015 		 1.27 		 9
+2016 		 1.33 		 6
+2017 		 1.29 		 9
+2018 		 1.25 		 9
+
+SEED 1
+YEAR		AVG_RWD		VIOLATIONS
+2011 		 1.36 		 13
+2012 		 1.35 		 12
+2013 		 1.29 		 17
+2014 		 1.22 		 20
+2015 		 1.25 		 20
+2016 		 1.38 		 13
+2017 		 1.27 		 22
+2018 		 1.23 		 24
+
+SEED 2
+YEAR		AVG_RWD		VIOLATIONS
+2011 		 0.49 		 31
+2012 		 0.39 		 33
+2013 		 0.33 		 41
+2014 		 0.27 		 46
+2015 		 0.44 		 31
+2016 		 0.61 		 24
+2017 		 0.48 		 34
+2018 		 0.31 		 43
+
+CONCLUSIONS:
+There is an overall improve in performance due to stronger rewards.
+
+DISCUSSION:
+**************************************************************
+
+dsn_prime(U-seed0) -> 0U -> A -> A1
+HYPOTHESIS:
+# A stronger reward signal might improve performance
+# Make rewards even stronger
+
+MODEL   :   A1 : INPUT->FC1->FC2->RELU->OUT
+
+
+LEARNING:   INIT_WEIGHT     = normal(0.01)
+            WIDTH           = 20
+            DEPTH           = 2
+            WEIGHT_DECAY    = 1E-3
+            LR              = 0.001
+            UPDATE_FREQ     = 18 MONTHS
+            MEMORY          = 24 MONTHS
+            ITERATION       = 50
+            BATCH_SIZE      = 32
+            EPSILON         = 0.9              
+            GAMMA           = 0.9                
+            LAMBDA          = 0.9  
+TRAINING:   TOKYO[2000-2010]
+            BATTERY_RESET    = 0 %
+            REWARD_FUNC      = TYPE2
+                               violation_penalty = 3
+                               R = r1*(3**r2) - violation_penalty
+            REWARD_BROADCAST = TRUE
+TESTING:    TOKYO[2011-2018]
+            GREEDY POLICY
+
+NOTES:      
+
+RESULTS:
+#learning curve seems very stable
+#weights are evenly distributed
+SEED 0
+YEAR		AVG_RWD		VIOLATIONS
+2011 		 1.09 		 36
+2012 		 0.87 		 39
+2013 		 1.07 		 32
+2014 		 0.85 		 37
+2015 		 1.12 		 27
+2016 		 1.03 		 33
+2017 		 1.03 		 32
+2018 		 0.97 		 42
+
+SEED 1
+YEAR		AVG_RWD		VIOLATIONS
+2011 		 1.89 		 7
+2012 		 1.95 		 6
+2013 		 1.76 		 11
+2014 		 1.74 		 10
+2015 		 1.8 		 5
+2016 		 1.76 		 9
+2017 		 1.82 		 9
+2018 		 1.89 		 7
+
+SEED 2
+YEAR		AVG_RWD		VIOLATIONS
+2011 		 1.41 		 35
+2012 		 1.28 		 29
+2013 		 1.26 		 34
+2014 		 1.06 		 52
+2015 		 1.11 		 42
+2016 		 1.33 		 30
+2017 		 1.37 		 35
+2018 		 1.07 		 48
+
+CONCLUSIONS:
+Making rewards even stronger does not improve performance
+
+DISCUSSION:
+Keep rewards at  R = r1*(2**r2).
+Revert back to A.
+**************************************************************
+                            A1---X
+                            |
+dsn_prime(U-seed0) -> 0U -> A -> A2
+HYPOTHESIS:
+# Change how ENP is calculated
+# ENP != binit - batt
+# ENP = binit - sum(atrack)*DMIN
+
+MODEL   :   A2 : INPUT->FC1->FC2->RELU->OUT
+
+
+LEARNING:   INIT_WEIGHT     = normal(0.01)
+            WIDTH           = 20
+            DEPTH           = 2
+            WEIGHT_DECAY    = 1E-3
+            LR              = 0.001
+            UPDATE_FREQ     = 18 MONTHS
+            MEMORY          = 24 MONTHS
+            ITERATION       = 50
+            BATCH_SIZE      = 32
+            EPSILON         = 0.9              
+            GAMMA           = 0.9                
+            LAMBDA          = 0.9  
+TRAINING:   TOKYO[2000-2010]
+            BATTERY_RESET    = 0 %
+            REWARD_FUNC      = TYPE2
+                               violation_penalty = 3
+                               R = r1*(2**r2) - violation_penalty
+            REWARD_BROADCAST = TRUE
+TESTING:    TOKYO[2011-2018]
+            GREEDY POLICY
+
+NOTES:      
+The ENP is not the actual ENP but the ENP that would have been observed if there were no limits to the battery.
+
+RESULTS:
+
+SEED 0
+#learning is gradual and stable
+#no large spikes
+YEAR		AVG_RWD		VIOLATIONS
+2011 		 0.8 		 3
+2012 		 0.74 		 6
+2013 		 0.77 		 5
+2014 		 0.67 		 10
+2015 		 0.7 		 8
+2016 		 0.8 		 7
+2017 		 0.77 		 10
+2018 		 0.73 		 6
+
+SEED 1
+#learning is gradual and stable
+#some large spikes
+YEAR		AVG_RWD		VIOLATIONS
+2011 		 1.18 		 14
+2012 		 1.14 		 12
+2013 		 1.04 		 25
+2014 		 0.87 		 27
+2015 		 1.0 		 19
+2016 		 1.14 		 12
+2017 		 1.04 		 24
+2018 		 0.96 		 25
+
+SEED 2
+#learning is gradual and stable
+#some large spikes
+YEAR		AVG_RWD		VIOLATIONS
+2011 		 1.05 		 15
+2012 		 0.95 		 15
+2013 		 0.93 		 20
+2014 		 0.76 		 28
+2015 		 0.91 		 16
+2016 		 1.07 		 12
+2017 		 0.94 		 24
+2018 		 0.89 		 18
+
+CONCLUSIONS:
+Using virtual ENP has better performance it seems.
+
+DISCUSSION:
+**************************************************************
+                            A1---X
+                            |
+                            A2--OK
+                            |
+dsn_prime(U-seed0) -> 0U -> A -> A3
+HYPOTHESIS:
+# Punish dead battery more than overfull battery
+
+MODEL   :   A3 : INPUT->FC1->FC2->RELU->OUT
+
+
+LEARNING:   INIT_WEIGHT     = normal(0.01)
+            WIDTH           = 20
+            DEPTH           = 2
+            WEIGHT_DECAY    = 1E-3
+            LR              = 0.001
+            UPDATE_FREQ     = 18 MONTHS
+            MEMORY          = 24 MONTHS
+            ITERATION       = 50
+            BATCH_SIZE      = 32
+            EPSILON         = 0.9              
+            GAMMA           = 0.9                
+            LAMBDA          = 0.9  
+TRAINING:   TOKYO[2000-2010]
+            BATTERY_RESET    = 0 %
+            REWARD_FUNC      = TYPE2
+                               violation_penalty = 3
+                               battery full = -2
+                               battery dead = -4
+                               R = r1*(2**r2) - violation_penalty
+            REWARD_BROADCAST = TRUE
+TESTING:    TOKYO[2011-2018]
+            GREEDY POLICY
+
+NOTES:      
+The ENP is not the actual ENP but the ENP that would have been observed if there were no limits to the battery.
+
+RESULTS:
+# Stable learning curve
+# Some spikes but overall uniform weight distribution
+SEED 0
+YEAR		AVG_RWD		VIOLATIONS
+2011 		 1.23 		 9
+2012 		 1.16 		 8
+2013 		 1.16 		 15
+2014 		 1.11 		 11
+2015 		 1.17 		 10
+2016 		 1.22 		 11
+2017 		 1.09 		 15
+2018 		 1.15 		 14
+
+SEED 1
+YEAR		AVG_RWD		VIOLATIONS
+2011 		 1.16 		 15
+2012 		 1.1 		 12
+2013 		 1.1 		 13
+2014 		 1.1 		 12
+2015 		 1.18 		 11
+2016 		 1.12 		 14
+2017 		 1.16 		 13
+2018 		 1.09 		 19
+
+SEED 2
+#although the average reward is lower, it has better performance
+YEAR		AVG_RWD		VIOLATIONS
+2011 		 1.24 		 0
+2012 		 1.33 		 0
+2013 		 1.29 		 0
+2014 		 1.2 		 1
+2015 		 1.18 		 0
+2016 		 1.2 		 0
+2017 		 1.3 		 2
+2018 		 1.25 		 0
+
+
+CONCLUSIONS:
+
+DISCUSSION:
+**************************************************************
+
+                            A1---X (very strong reward fn)
+                            |
+                            A2--OK (virtual ENP)------\
+                            |                          |==>A4
+                            A3--OK (punish dead batt)-/
+                            |
+dsn_prime(U-seed0) -> 0U -> A
+HYPOTHESIS:
+# Combine A2 and A3
+# ENP = binit - sum(atrack)*DMIN
+# Punish dead battery more than overfull battery
+
+MODEL   :   A4: INPUT->FC1->FC2->RELU->OUT
+
+
+LEARNING:   INIT_WEIGHT     = normal(0.01)
+            WIDTH           = 20
+            DEPTH           = 2
+            WEIGHT_DECAY    = 1E-3
+            LR              = 0.001
+            UPDATE_FREQ     = 18 MONTHS
+            MEMORY          = 24 MONTHS
+            ITERATION       = 50
+            BATCH_SIZE      = 32
+            EPSILON         = 0.9              
+            GAMMA           = 0.9                
+            LAMBDA          = 0.9  
+TRAINING:   TOKYO[2000-2010]
+            BATTERY_RESET    = 0 %
+            REWARD_FUNC      = TYPE2
+                               violation_penalty = 3
+                               battery full = -2
+                               battery dead = -4
+                               R = r1*(2**r2) - violation_penalty
+            REWARD_BROADCAST = TRUE
+TESTING:    TOKYO[2011-2018]
+            GREEDY POLICY
+
+NOTES:      
+
+
+RESULTS:
+#learning curve is stable
+#weights are okay - a little spiky
+SEED 0
+YEAR		AVG_RWD		VIOLATIONS
+2011 		 1.39 		 1
+2012 		 1.31 		 2
+2013 		 1.28 		 6
+2014 		 1.23 		 3
+2015 		 1.24 		 0
+2016 		 1.28 		 4
+2017 		 1.22 		 7
+2018 		 1.27 		 3
+
+SEED 1
+YEAR		AVG_RWD		VIOLATIONS
+2011 		 1.17 		 2
+2012 		 1.08 		 4
+2013 		 1.17 		 1
+2014 		 1.05 		 5
+2015 		 1.04 		 4
+2016 		 1.11 		 4
+2017 		 1.15 		 5
+2018 		 1.16 		 0
+
+SEED 2
+YEAR		AVG_RWD		VIOLATIONS
+2011 		 0.67 		 23
+2012 		 0.54 		 29
+2013 		 0.54 		 29
+2014 		 0.41 		 43
+2015 		 0.69 		 19
+2016 		 0.81 		 19
+2017 		 0.7 		 26
+2018 		 0.59 		 28
+
+
+CONCLUSIONS:
+Using virutal ENP and extra punishment improves performance
+
+DISCUSSION:
+The bad performance in seed 2 maybe due to wt. initialization problems.
+**************************************************************
+
+                            
+dsn_prime(U-seed0) -> 0U -> A -> A4 -> B
+HYPOTHESIS:
+# Use different weight intialization
+INIT_WEIGHT     = normal(0.1)
+
+MODEL   :   B: INPUT->FC1->FC2->RELU->OUT
+
+
+LEARNING:   INIT_WEIGHT     = normal(0.1)
+            WIDTH           = 20
+            DEPTH           = 2
+            WEIGHT_DECAY    = 1E-3
+            LR              = 0.001
+            UPDATE_FREQ     = 18 MONTHS
+            MEMORY          = 24 MONTHS
+            ITERATION       = 50
+            BATCH_SIZE      = 32
+            EPSILON         = 0.9              
+            GAMMA           = 0.9                
+            LAMBDA          = 0.9  
+TRAINING:   TOKYO[2000-2010]
+            BATTERY_RESET    = 0 %
+            REWARD_FUNC      = TYPE2
+                               violation_penalty = 3
+                               battery full = -2
+                               battery dead = -4
+                               R = r1*(2**r2) - violation_penalty
+            REWARD_BROADCAST = TRUE
+TESTING:    TOKYO[2011-2018]
+            GREEDY POLICY
+
+NOTES:      
+
+
+RESULTS:
+SEED 0
+YEAR		AVG_RWD		VIOLATIONS
+2011 		 1.09 		 17
+2012 		 0.97 		 18
+2013 		 1.03 		 18
+2014 		 0.84 		 24
+2015 		 0.92 		 20
+2016 		 1.08 		 15
+2017 		 0.93 		 25
+2018 		 0.92 		 22
+
+SEED 1
+
+YEAR		AVG_RWD		VIOLATIONS
+2011 		 0.67 		 34
+2012 		 0.56 		 37
+2013 		 0.5 		 46
+2014 		 0.38 		 52
+2015 		 0.6 		 35
+2016 		 0.86 		 21
+2017 		 0.61 		 39
+2018 		 0.46 		 47
+
+SEED 2
+YEAR		AVG_RWD		VIOLATIONS
+2011 		 0.96 		 16
+2012 		 0.84 		 17
+2013 		 0.87 		 20
+2014 		 0.64 		 33
+2015 		 0.75 		 19
+2016 		 0.81 		 21
+2017 		 0.94 		 22
+2018 		 0.78 		 22
+
+CONCLUSIONS:
+Using wt_init(0.1) has very bad effects
+
+DISCUSSION:
+
+**************************************************************
+                                 B (wt_init(0.1))---X
+                                 |
+dsn_prime(U-seed0) -> 0U -> A -> A4 -> B1
+HYPOTHESIS:
+# Use different weight intialization
+INIT_WEIGHT     = normal(0.001)
+
+MODEL   :   B1: INPUT->FC1->FC2->RELU->OUT
+
+
+LEARNING:   INIT_WEIGHT     = normal(0.001)
+            WIDTH           = 20
+            DEPTH           = 2
+            WEIGHT_DECAY    = 1E-3
+            LR              = 0.001
+            UPDATE_FREQ     = 18 MONTHS
+            MEMORY          = 24 MONTHS
+            ITERATION       = 50
+            BATCH_SIZE      = 32
+            EPSILON         = 0.9              
+            GAMMA           = 0.9                
+            LAMBDA          = 0.9  
+TRAINING:   TOKYO[2000-2010]
+            BATTERY_RESET    = 0 %
+            REWARD_FUNC      = TYPE2
+                               violation_penalty = 3
+                               battery full = -2
+                               battery dead = -4
+                               R = r1*(2**r2) - violation_penalty
+            REWARD_BROADCAST = TRUE
+TESTING:    TOKYO[2011-2018]
+            GREEDY POLICY
+
+NOTES:      
+
+
+RESULTS:
+SEED 0:
+YEAR		AVG_RWD		VIOLATIONS
+2011 		 1.33 		 1
+2012 		 1.25 		 1
+2013 		 1.25 		 3
+2014 		 1.14 		 4
+2015 		 1.09 		 4
+2016 		 1.16 		 2
+2017 		 1.24 		 5
+2018 		 1.11 		 6
+
+SEED 1:
+YEAR		AVG_RWD		VIOLATIONS
+2011 		 1.17 		 2
+2012 		 1.08 		 4
+2013 		 1.17 		 1
+2014 		 1.05 		 5
+2015 		 1.04 		 4
+2016 		 1.11 		 4
+2017 		 1.15 		 5
+2018 		 1.16 		 0
+
+SEED 2:
+YEAR		AVG_RWD		VIOLATIONS
+2011 		 0.67 		 23
+2012 		 0.54 		 29
+2013 		 0.54 		 29
+2014 		 0.41 		 43
+2015 		 0.69 		 19
+2016 		 0.81 		 19
+2017 		 0.7 		 26
+2018 		 0.59 		 28
+
+
+
+CONCLUSIONS:
+Good result.
+
+DISCUSSION:
+FC1 and FC2 are connected linearly without any activation function.
+Smaller weight initializations are preferred.
+
+**************************************************************
+                                 B1 (wt_init(0.001))-OK
+                                 |
+                                 B (wt_init(0.1))---X
+                                 |
+dsn_prime(U-seed0) -> 0U -> A -> A4 -> B2
+HYPOTHESIS:
+# Use different weight intialization
+FC1 : Xavier
+FC2 : Kaiming
+OUT : Xavier
+MODEL   :   B2: INPUT->FC1->FC2->RELU->OUT
+
+
+LEARNING:   INIT_WEIGHT     = normal(0.001)
+            WIDTH           = 20
+            DEPTH           = 2
+            WEIGHT_DECAY    = 1E-3
+            LR              = 0.001
+            UPDATE_FREQ     = 18 MONTHS
+            MEMORY          = 24 MONTHS
+            ITERATION       = 50
+            BATCH_SIZE      = 32
+            EPSILON         = 0.9              
+            GAMMA           = 0.9                
+            LAMBDA          = 0.9  
+TRAINING:   TOKYO[2000-2010]
+            BATTERY_RESET    = 0 %
+            REWARD_FUNC      = TYPE2
+                               violation_penalty = 3
+                               battery full = -2
+                               battery dead = -4
+                               R = r1*(2**r2) - violation_penalty
+            REWARD_BROADCAST = TRUE
+TESTING:    TOKYO[2011-2018]
+            GREEDY POLICY
+
+NOTES:      
+
+
+RESULTS:
+Better performance than A4 and B1.
+Seems to have stabler learning curve
+
+
+CONCLUSIONS:
+Using Xavier/Kaiming Initialization improve performance.
+
+DISCUSSION:
+
+**************************************************************
+                                 B1(wt_init(0.001))--OK
+                                 |
+                                 B (wt_init(0.1))---X
+                                 |
+dsn_prime(U-seed0) -> 0U -> A -> A4 -> C
+
+HYPOTHESIS:
+Add a RELU layer activation between linear layers
+
+MODEL   :   C : INPUT->FC1->RELU->FC2->RELU->OUT
+
+
+LEARNING:   INIT_WEIGHT     = normal(0.01)
+            WIDTH           = 20
+            DEPTH           = 2
+            WEIGHT_DECAY    = 1E-3
+            LR              = 0.001
+            UPDATE_FREQ     = 18 MONTHS
+            MEMORY          = 24 MONTHS
+            ITERATION       = 50
+            BATCH_SIZE      = 32
+            EPSILON         = 0.9              
+            GAMMA           = 0.9                
+            LAMBDA          = 0.9  
+TRAINING:   TOKYO[2000-2010]
+            BATTERY_RESET    = 0 %
+            REWARD_FUNC      = TYPE2
+                               violation_penalty = 3
+                               battery full = -2
+                               battery dead = -4
+                               R = r1*(2**r2) - violation_penalty
+            REWARD_BROADCAST = TRUE
+TESTING:    TOKYO[2011-2018]
+            GREEDY POLICY
+
+NOTES:      
+
+
+RESULTS:
+SEED 0
+YEAR		AVG_RWD		VIOLATIONS
+2011 		 1.4 		 1
+2012 		 1.34 		 0
+2013 		 1.35 		 2
+2014 		 1.26 		 2
+2015 		 1.27 		 0
+2016 		 1.31 		 3
+2017 		 1.17 		 11
+2018 		 1.31 		 2
+
+SEED 1
+YEAR		AVG_RWD		VIOLATIONS
+2011 		 1.51 		 0
+2012 		 1.44 		 1
+2013 		 1.45 		 4
+2014 		 1.36 		 2
+2015 		 1.36 		 1
+2016 		 1.4 		 5
+2017 		 1.47 		 0
+2018 		 1.38 		 5
+
+SEED 2
+YEAR		AVG_RWD		VIOLATIONS
+2011 		 1.4 		 2
+2012 		 1.31 		 2
+2013 		 1.32 		 3
+2014 		 1.18 		 7
+2015 		 1.2 		 3
+2016 		 1.27 		 3
+2017 		 1.29 		 7
+2018 		 1.23 		 5
+
+CONCLUSIONS:
+Additional RELU activation helps very much.
+
+
+DISCUSSION:
+
+**************************************************************
+
+
+                                 C(RELU)
+                                 |
+                                 B1(wt_init(0.001))--OK
+                                 |
+                                 B (wt_init(0.1))---X
+                                 |
+dsn_prime(U-seed0) -> 0U -> A -> A4 -> D
+                                 
+HYPOTHESIS:
+Add a tanh activation in between FC1 and FC2
+
+MODEL   :   D : INPUT->FC1->TANH->FC2->RELU->OUT
+
+
+LEARNING:   INIT_WEIGHT     = normal(0.01)
+            WIDTH           = 20
+            DEPTH           = 2
+            WEIGHT_DECAY    = 1E-3
+            LR              = 0.001
+            UPDATE_FREQ     = 18 MONTHS
+            MEMORY          = 24 MONTHS
+            ITERATION       = 50
+            BATCH_SIZE      = 32
+            EPSILON         = 0.9              
+            GAMMA           = 0.9                
+            LAMBDA          = 0.9  
+TRAINING:   TOKYO[2000-2010]
+            BATTERY_RESET    = 0 %
+            REWARD_FUNC      = TYPE2
+                               violation_penalty = 3
+                               battery full = -2
+                               battery dead = -4
+                               R = r1*(2**r2) - violation_penalty
+            REWARD_BROADCAST = TRUE
+TESTING:    TOKYO[2011-2018]
+            GREEDY POLICY
+
+NOTES:      
+
+
+RESULTS:
+SEED 0
+YEAR		AVG_RWD		VIOLATIONS
+2011 		 1.44 		 0
+2012 		 1.41 		 0
+2013 		 1.44 		 0
+2014 		 1.36 		 0
+2015 		 1.37 		 0
+2016 		 1.37 		 0
+2017 		 1.43 		 0
+2018 		 1.37 		 0
+
+SEED 1
+YEAR		AVG_RWD		VIOLATIONS
+2011 		 1.49 		 0
+2012 		 1.43 		 0
+2013 		 1.48 		 0
+2014 		 1.37 		 1
+2015 		 1.35 		 0
+2016 		 1.39 		 0
+2017 		 1.39 		 3
+2018 		 1.42 		 0
+
+SEED 2
+YEAR		AVG_RWD		VIOLATIONS
+2011 		 0.75 		 5
+2012 		 0.74 		 4
+2013 		 0.7 		 8
+2014 		 0.7 		 6
+2015 		 0.77 		 2
+2016 		 0.79 		 9
+2017 		 0.72 		 12
+2018 		 0.72 		 8
+
+
+
+
+CONCLUSIONS:
+TANH Activation are also quite good.
+DISCUSSION:
+
+**************************************************************
+                                 D(TANH)
+                                 |
+                                 C(RELU)
+                                 |
+                                 B1(wt_init(0.001))--OK
+                                 |
+                                 B (wt_init(0.1))---X
+                                 |
+dsn_prime(U-seed0) -> 0U -> A -> A4 -> E
+                                 
+HYPOTHESIS:
+Add a Sigmoid layer between FC1 and FC2
+
+MODEL   :   E : INPUT->FC1->SIGMOID->FC2->RELU->OUT
+
+
+LEARNING:   INIT_WEIGHT     = normal(0.01)
+            WIDTH           = 20
+            DEPTH           = 2
+            WEIGHT_DECAY    = 1E-3
+            LR              = 0.001
+            UPDATE_FREQ     = 18 MONTHS
+            MEMORY          = 24 MONTHS
+            ITERATION       = 50
+            BATCH_SIZE      = 32
+            EPSILON         = 0.9              
+            GAMMA           = 0.9                
+            LAMBDA          = 0.9  
+TRAINING:   TOKYO[2000-2010]
+            BATTERY_RESET    = 0 %
+            REWARD_FUNC      = TYPE2
+                               violation_penalty = 3
+                               battery full = -2
+                               battery dead = -4
+                               R = r1*(2**r2) - violation_penalty
+            REWARD_BROADCAST = TRUE
+TESTING:    TOKYO[2011-2018]
+            GREEDY POLICY
+
+NOTES:      
+
+
+RESULTS:
+SEED 0
+YEAR		AVG_RWD		VIOLATIONS
+2011 		 1.48 		 0
+2012 		 1.4 		 0
+2013 		 1.4 		 0
+2014 		 1.34 		 0
+2015 		 1.29 		 0
+2016 		 1.34 		 0
+2017 		 1.42 		 0
+2018 		 1.35 		 0
+
+SEED 1
+YEAR		AVG_RWD		VIOLATIONS
+2011 		 1.37 		 0
+2012 		 1.32 		 1
+2013 		 1.31 		 1
+2014 		 1.22 		 1
+2015 		 1.25 		 0
+2016 		 1.26 		 3
+2017 		 1.26 		 4
+2018 		 1.27 		 1
+
+SEED 2
+YEAR		AVG_RWD		VIOLATIONS
+2011 		 1.31 		 0
+2012 		 1.3 		 0
+2013 		 1.31 		 0
+2014 		 1.25 		 0
+2015 		 1.26 		 0
+2016 		 1.27 		 0
+2017 		 1.32 		 0
+2018 		 1.27 		 0
+
+
+CONCLUSIONS:
+Sigmoid Activations are very good.
+
+
+DISCUSSION:
+Try with Xavier initializations
+**************************************************************
+
+                                 D(TANH)
+                                 |
+                                 C(RELU)
+                                 |
+                                 B1(wt_init(0.001))--OK
+                                 |
+                                 B (wt_init(0.1))---X
+                                 |
+dsn_prime(U-seed0) -> 0U -> A -> A4 -> E(Sigmoid)
+                                       |
+                                       E1
+                                 
+HYPOTHESIS:
+FC1 - Xavier Initialization
+FC2 - Xavier Initialization
+OUT - Kaiming Initialization
+
+MODEL   :   E1 : INPUT->FC1->SIGMOID->FC2->RELU->OUT
+
+
+LEARNING:   INIT_WEIGHT     = normal(0.01)
+            WIDTH           = 20
+            DEPTH           = 2
+            WEIGHT_DECAY    = 1E-3
+            LR              = 0.001
+            UPDATE_FREQ     = 18 MONTHS
+            MEMORY          = 24 MONTHS
+            ITERATION       = 50
+            BATCH_SIZE      = 32
+            EPSILON         = 0.9              
+            GAMMA           = 0.9                
+            LAMBDA          = 0.9  
+TRAINING:   TOKYO[2000-2010]
+            BATTERY_RESET    = 0 %
+            REWARD_FUNC      = TYPE2
+                               violation_penalty = 3
+                               battery full = -2
+                               battery dead = -4
+                               R = r1*(2**r2) - violation_penalty
+            REWARD_BROADCAST = TRUE
+TESTING:    TOKYO[2011-2018]
+            GREEDY POLICY
+
+NOTES:      
+
+
+RESULTS:
+SEED 0
+YEAR		AVG_RWD		VIOLATIONS
+2011 		 1.51 		 0
+2012 		 1.44 		 0
+2013 		 1.47 		 0
+2014 		 1.39 		 0
+2015 		 1.35 		 0
+2016 		 1.4 		 0
+2017 		 1.44 		 1
+2018 		 1.41 		 0
+
+SEED 1
+2011 		 1.45 		 0
+2012 		 1.35 		 1
+2013 		 1.37 		 2
+2014 		 1.3 		 1
+2015 		 1.3 		 0
+2016 		 1.34 		 2
+2017 		 1.4 		 0
+2018 		 1.3 		 3
+
+SEED 2
+YEAR		AVG_RWD		VIOLATIONS
+2011 		 1.44 		 1
+2012 		 1.37 		 1
+2013 		 1.38 		 2
+2014 		 1.27 		 3
+2015 		 1.26 		 1
+2016 		 1.33 		 2
+2017 		 1.35 		 4
+2018 		 1.28 		 5
+
+CONCLUSIONS:
+Activation Initialization Order was wrong.
+
+DISCUSSION:
+**************************************************************
+
+
+                                 D(TANH)
+                                 |
+                                 C(RELU)
+                                 |
+                                 B1(wt_init(0.001))--OK
+                                 |
+                                 B (wt_init(0.1))---X
+                                 |
+dsn_prime(U-seed0) -> 0U -> A -> A4 -> E(Sigmoid)-E1(XaXaKa)
+                                       |
+                                       E2
+                                 
+HYPOTHESIS:
+FC1 - Xavier Initialization
+FC2 - Kaiming Initialization
+OUT - Xavier Initialization
+
+MODEL   :   E2 : INPUT->FC1->SIGMOID->FC2->RELU->OUT
+
+
+LEARNING:   INIT_WEIGHT     = normal(0.01)
+            WIDTH           = 20
+            DEPTH           = 2
+            WEIGHT_DECAY    = 1E-3
+            LR              = 0.001
+            UPDATE_FREQ     = 18 MONTHS
+            MEMORY          = 24 MONTHS
+            ITERATION       = 50
+            BATCH_SIZE      = 32
+            EPSILON         = 0.9              
+            GAMMA           = 0.9                
+            LAMBDA          = 0.9  
+TRAINING:   TOKYO[2000-2010]
+            BATTERY_RESET    = 0 %
+            REWARD_FUNC      = TYPE2
+                               violation_penalty = 3
+                               battery full = -2
+                               battery dead = -4
+                               R = r1*(2**r2) - violation_penalty
+            REWARD_BROADCAST = TRUE
+TESTING:    TOKYO[2011-2018]
+            GREEDY POLICY
+
+NOTES:      
+
+
+RESULTS:
+SEED 0:
+YEAR		AVG_RWD		VIOLATIONS
+2011 		 1.53 		 0
+2012 		 1.48 		 0
+2013 		 1.49 		 0
+2014 		 1.42 		 0
+2015 		 1.4 		 0
+2016 		 1.44 		 0
+2017 		 1.48 		 0
+2018 		 1.45 		 0
+
+SEED 1:
+YEAR		AVG_RWD		VIOLATIONS
+2011 		 1.27 		 10
+2012 		 1.21 		 9
+2013 		 1.14 		 20
+2014 		 1.06 		 16
+2015 		 1.08 		 14
+2016 		 1.22 		 8
+2017 		 1.14 		 19
+2018 		 1.08 		 19
+
+SEED 2:
+YEAR		AVG_RWD		VIOLATIONS
+2011 		 1.31 		 1
+2012 		 1.26 		 2
+2013 		 1.24 		 4
+2014 		 1.16 		 3
+2015 		 1.2 		 1
+2016 		 1.22 		 3
+2017 		 1.27 		 1
+2018 		 1.18 		 5
+
+CONCLUSIONS:
+Activation initiliazations don't seem to help that much.
+
+DISCUSSION:
+**************************************************************

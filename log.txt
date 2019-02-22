@@ -21,7 +21,7 @@ A
 |--> A6  : Huber Loss----------------------------> a little better than A, a little worse than A1
 |
 |
-|--> A7  : LR SCHEDULING [/\ (3,0,2), \/ 0.8]
+|--> A7  : LR SCHEDULING [/\ (3,0,2), \/ 0.8]---->
 |
 |--> A1C : EPSILON SCHEDULING [10,0.75,30]-------> worse than A
 |        : Target Update       6 months-----|

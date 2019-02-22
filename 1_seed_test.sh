@@ -2,7 +2,7 @@
 
 for name in "$@"
 do
-	if [ -e ${name}.out ]
+	if [ -e ./seed_output/${name}.out ]
 	then
 		rm ./seed_output/${name}.out
 	fi

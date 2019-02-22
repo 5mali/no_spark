@@ -39,15 +39,28 @@ B*: EPSILON SCHEDULING [10, 0.75, 30]------------> similar to A7. Higher average
 |   LR SCHEDULING      [(3, 0, 2), 30]---|
 |   TRAIN              TKY[2000-2010]----|
 |   HUBER LOSS---------------------------|
+|==> B  : SEED TEST (10/10)--------------------> TEST PASSED!!!!!(Some seeds have violations)
 |
 |
-|
-B1: EPSILON SCHEDULING [10, 0.75, 30]-------------> higher average rewards than B but one major violation
+B1*: EPSILON SCHEDULING [10, 0.75, 30]-------------> higher average rewards than B but one major violation
 |   LR SCHEDULING      [(3, 0, 2), 30]---|
 |   TRAIN              TKY[2000-2010]----|
 |   MSE LOSS-----------------------------|
+|==> B1 : SEED TEST ( 10/10)--------------------> Better than B
 |
-
+|
+B2: EPSILON SCHEDULING [10, 0.75, 30]-------------> lower average rewards than B but lesser violations too
+|   LR SCHEDULING      [(3, 0, 2), 30]---|
+|   TRAIN              TKY[2000-2010]----|
+|   HUBER LOSS---------------------------|
+|   TARGET UPDATE      [6 months]--------|
+|
+B3: EPSILON SCHEDULING [10, 0.75, 30]-------------> slight degradation in performance
+|   LR SCHEDULING      [(3, 0, 2), 30]---|
+|   TRAIN              TKY[2000-2010]----|
+|   HUBER LOSS---------------------------|
+|   WIDTH              [20]--------------|
+|
 
 BEXP: LR SCHEDULING, EPSILON SCHEDULING, HUBER LOSS, WIDTH=50 ---OK
 BEXP: LR SCHEDULING, EPSILON SCHEDULING, HUBER LOSS, WIDTH=100---?

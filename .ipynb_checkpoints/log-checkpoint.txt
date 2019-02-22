@@ -13,14 +13,17 @@ A
 |--> A3c : Target Update = 12 months-------------> worse than A
 |
 |--> A5  : norm_ENP = enp/(BMAX/2)---------------> worse than A
-|--> A6  : Huber Loss
+|--> A6  : Huber Loss----------------------------> a little better than A
 |
 |==> A1:SEED TEST (10/10)--not perfect but robust enough
 |==> A3:SEED TEST ( 9/10)--almost perfect
 |
 |
-|--> A1C :EPSILON SCHEDULING [10,0.75,30]
-|        :Target Update       6 months
+|--> A1C :EPSILON SCHEDULING [10,0.75,30]--------> worse than A
+|        :Target Update       6 months-----|
+|
+|--> A1D* :EPSILON SCHEDULING [10,0.75,30]--------> No Batt Violations. Better performance than A1
+|        :Huber Loss-----------------------|
 |
 B: TRAIN TKY[2000-2010]
 

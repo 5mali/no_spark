@@ -71,15 +71,35 @@ B1A: SIGMOID Activations:-------------------------> weights are kind of weird. G
 |
 |==> B1A : SEED TEST (10/10)----------------------> 
 |
+|
+B1B: EPSILON SCHEDULING [10, 0.75, 30]-------------> 
+|   LR SCHEDULING      [(3, 0, 2), 30]----|
+|   TRAIN              TKY[2000-2010]-----|
+|   LOSS               [ MSE ]------------|
+|   DEPTH              [1xLeakyRELU]------|
+|   [ip->FC1->LeRELU->FCOUT->op]-|
+|
+|
 C*: EPSILON SCHEDULING [10, 0.75, 30]-------------> SCRIPT SUPPORT
 |   LR SCHEDULING      [(3, 0, 2), 30]----|
 |   TRAIN              TKY[2000-2010]-----|
 |   LOSS               [ MSE ]------------|
+|   DEPTH              [2xRELU]-----------|
 |   [ip->FC1->RELU->FC2->RELU->FCOUT->op]-| 
 |
+C1: EPSILON SCHEDULING [10, 0.75, 30]-------------> 
+|   LR SCHEDULING      [(3, 0, 2), 30]----|
+|   TRAIN              TKY[2000-2010]-----|
+|   LOSS               [ MSE ]------------|
+|   DEPTH              [2xSIGMOID]--------|
+|   [ip->FC1->RELU->FC2->RELU->FCOUT->op]-|  
 |
-|
-|
+C2: EPSILON SCHEDULING [10, 0.75, 30]-------------> 
+|   LR SCHEDULING      [(3, 0, 2), 30]--------|
+|   TRAIN              TKY[2000-2010]---------|
+|   LOSS               [ MSE ]----------------|
+|   DEPTH              [2xLeRELU]-------------|
+|   [ip->FC1->LeRELU->FC2->LeRELU->FCOUT->op]-|  
 
 
 

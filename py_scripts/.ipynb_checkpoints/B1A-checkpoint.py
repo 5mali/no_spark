@@ -38,7 +38,7 @@ import torch
 
 
 seedlist = np.array([161, 314, 228, 271828, 230, 4271031, 5526538, 6610165, 9849252, 34534, 73422, 8765])
-seed = seedlist[0]
+seed = seedlist[seed_arg]
 random.seed(seed)
 torch.manual_seed(seed)
 torch.cuda.manual_seed(seed)

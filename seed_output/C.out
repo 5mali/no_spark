@@ -1,0 +1,480 @@
+
+
+Seed ARG:  0
+Iteration 0:  TOKYO, 2008 
+Iteration 1:  TOKYO, 2003 
+Iteration 2:  TOKYO, 2008 
+Iteration 3:  TOKYO, 2002 
+Iteration 4:  TOKYO, 2003 
+Iteration 5:  TOKYO, 2009 
+Iteration 6:  TOKYO, 2007 
+Iteration 7:  TOKYO, 2000 
+Iteration 8:  TOKYO, 2007 
+Iteration 9:  TOKYO, 2007 
+Iteration 10:  TOKYO, 2000 
+Iteration 11:  TOKYO, 2007 
+Iteration 12:  TOKYO, 2000 
+Iteration 13:  TOKYO, 2007 
+Iteration 14:  TOKYO, 2009 
+Iteration 15:  TOKYO, 2001 
+Iteration 16:  TOKYO, 2009 
+Iteration 17:  TOKYO, 2007 
+Iteration 18:  TOKYO, 2000 
+Iteration 19:  TOKYO, 2000 
+Iteration 20:  TOKYO, 2004 
+Iteration 21:  TOKYO, 2008 
+Iteration 22:  TOKYO, 2004 
+Iteration 23:  TOKYO, 2006 
+Iteration 24:  TOKYO, 2007 
+Iteration 25:  TOKYO, 2003 
+Iteration 26:  TOKYO, 2005 
+Iteration 27:  TOKYO, 2007 
+Iteration 28:  TOKYO, 2008 
+Iteration 29:  TOKYO, 2004 
+Iteration 30:  TOKYO, 2006 
+Iteration 31:  TOKYO, 2002 
+Iteration 32:  TOKYO, 2007 
+Iteration 33:  TOKYO, 2000 
+Iteration 34:  TOKYO, 2007 
+Iteration 35:  TOKYO, 2002 
+Iteration 36:  TOKYO, 2003 
+Iteration 37:  TOKYO, 2006 
+Iteration 38:  TOKYO, 2004 
+Iteration 39:  TOKYO, 2008 
+Iteration 40:  TOKYO, 2006 
+Iteration 41:  TOKYO, 2000 
+Iteration 42:  TOKYO, 2000 
+Iteration 43:  TOKYO, 2004 
+Iteration 44:  TOKYO, 2008 
+Iteration 45:  TOKYO, 2007 
+Iteration 46:  TOKYO, 2009 
+Iteration 47:  TOKYO, 2003 
+Iteration 48:  TOKYO, 2007 
+Iteration 49:  TOKYO, 2009 
+Train time: 0:12:59.256763
+YEAR	AVG_RWD		VIOLATIONS
+			DAY	BATT
+2000	 1.38		0	 0
+2001	 1.4		0	 0
+2002	 1.32		0	 0
+2003	 1.33		1	 0
+2004	 1.34		0	 0
+2005	 1.37		0	 0
+2006	 1.37		0	 0
+2007	 1.37		0	 0
+2008	 1.35		0	 0
+2009	 1.37		0	 0
+2010	 1.36		0	 0
+2011	 1.36		0	 0
+2012	 1.35		0	 0
+2013	 1.37		0	 0
+2014	 1.36		0	 0
+2015	 1.37		0	 0
+2016	 1.39		0	 0
+2017	 1.36		0	 0
+
+TOTAL Day Violations:   1.0
+TOTAL Batt Violations:  0.0
+Run time: 0:13:36.700014
+
+
+
+
+Seed ARG:  1
+Iteration 0:  TOKYO, 2003 
+Iteration 1:  TOKYO, 2007 
+Iteration 2:  TOKYO, 2001 
+Iteration 3:  TOKYO, 2002 
+Iteration 4:  TOKYO, 2000 
+Iteration 5:  TOKYO, 2004 
+Iteration 6:  TOKYO, 2003 
+Iteration 7:  TOKYO, 2006 
+Iteration 8:  TOKYO, 2003 
+Iteration 9:  TOKYO, 2006 
+Iteration 10:  TOKYO, 2008 
+Iteration 11:  TOKYO, 2007 
+Iteration 12:  TOKYO, 2000 
+Iteration 13:  TOKYO, 2002 
+Iteration 14:  TOKYO, 2002 
+Iteration 15:  TOKYO, 2001 
+Iteration 16:  TOKYO, 2003 
+Iteration 17:  TOKYO, 2000 
+Iteration 18:  TOKYO, 2003 
+Iteration 19:  TOKYO, 2009 
+Iteration 20:  TOKYO, 2004 
+Iteration 21:  TOKYO, 2000 
+Iteration 22:  TOKYO, 2003 
+Iteration 23:  TOKYO, 2002 
+Iteration 24:  TOKYO, 2005 
+Iteration 25:  TOKYO, 2005 
+Iteration 26:  TOKYO, 2005 
+Iteration 27:  TOKYO, 2008 
+Iteration 28:  TOKYO, 2009 
+Iteration 29:  TOKYO, 2003 
+Iteration 30:  TOKYO, 2009 
+Iteration 31:  TOKYO, 2005 
+Iteration 32:  TOKYO, 2006 
+Iteration 33:  TOKYO, 2008 
+Iteration 34:  TOKYO, 2007 
+Iteration 35:  TOKYO, 2002 
+Iteration 36:  TOKYO, 2007 
+Iteration 37:  TOKYO, 2000 
+Iteration 38:  TOKYO, 2007 
+Iteration 39:  TOKYO, 2009 
+Iteration 40:  TOKYO, 2005 
+Iteration 41:  TOKYO, 2008 
+Iteration 42:  TOKYO, 2003 
+Iteration 43:  TOKYO, 2005 
+Iteration 44:  TOKYO, 2008 
+Iteration 45:  TOKYO, 2000 
+Iteration 46:  TOKYO, 2001 
+Iteration 47:  TOKYO, 2007 
+Iteration 48:  TOKYO, 2006 
+Iteration 49:  TOKYO, 2009 
+Train time: 0:12:56.957959
+YEAR	AVG_RWD		VIOLATIONS
+			DAY	BATT
+2000	 1.36		3	 0
+2001	 1.34		5	 0
+2002	 1.31		5	 1
+2003	 1.37		3	 0
+2004	 1.26		10	 7
+2005	 1.35		4	 0
+2006	 1.39		2	 0
+2007	 1.31		7	 2
+2008	 1.34		5	 0
+2009	 1.37		2	 0
+2010	 1.31		6	 3
+2011	 1.29		9	 7
+2012	 1.32		5	 2
+2013	 1.31		6	 1
+2014	 1.25		12	 3
+2015	 1.31		7	 2
+2016	 1.3		10	 5
+2017	 1.27		9	 5
+
+TOTAL Day Violations:   110.0
+TOTAL Batt Violations:  38.0
+Run time: 0:13:34.070921
+
+
+
+
+Seed ARG:  2
+Iteration 0:  TOKYO, 2003 
+Iteration 1:  TOKYO, 2009 
+Iteration 2:  TOKYO, 2003 
+Iteration 3:  TOKYO, 2003 
+Iteration 4:  TOKYO, 2007 
+Iteration 5:  TOKYO, 2009 
+Iteration 6:  TOKYO, 2009 
+Iteration 7:  TOKYO, 2007 
+Iteration 8:  TOKYO, 2002 
+Iteration 9:  TOKYO, 2001 
+Iteration 10:  TOKYO, 2009 
+Iteration 11:  TOKYO, 2002 
+Iteration 12:  TOKYO, 2004 
+Iteration 13:  TOKYO, 2006 
+Iteration 14:  TOKYO, 2004 
+Iteration 15:  TOKYO, 2005 
+Iteration 16:  TOKYO, 2009 
+Iteration 17:  TOKYO, 2006 
+Iteration 18:  TOKYO, 2009 
+Iteration 19:  TOKYO, 2003 
+Iteration 20:  TOKYO, 2009 
+Iteration 21:  TOKYO, 2001 
+Iteration 22:  TOKYO, 2009 
+Iteration 23:  TOKYO, 2009 
+Iteration 24:  TOKYO, 2008 
+Iteration 25:  TOKYO, 2006 
+Iteration 26:  TOKYO, 2007 
+Iteration 27:  TOKYO, 2001 
+Iteration 28:  TOKYO, 2009 
+Iteration 29:  TOKYO, 2009 
+Iteration 30:  TOKYO, 2005 
+Iteration 31:  TOKYO, 2004 
+Iteration 32:  TOKYO, 2009 
+Iteration 33:  TOKYO, 2006 
+Iteration 34:  TOKYO, 2003 
+Iteration 35:  TOKYO, 2006 
+Iteration 36:  TOKYO, 2005 
+Iteration 37:  TOKYO, 2007 
+Iteration 38:  TOKYO, 2004 
+Iteration 39:  TOKYO, 2005 
+Iteration 40:  TOKYO, 2001 
+Iteration 41:  TOKYO, 2003 
+Iteration 42:  TOKYO, 2001 
+Iteration 43:  TOKYO, 2004 
+Iteration 44:  TOKYO, 2004 
+Iteration 45:  TOKYO, 2002 
+Iteration 46:  TOKYO, 2008 
+Iteration 47:  TOKYO, 2004 
+Iteration 48:  TOKYO, 2005 
+Iteration 49:  TOKYO, 2005 
+Train time: 0:13:01.996481
+YEAR	AVG_RWD		VIOLATIONS
+			DAY	BATT
+2000	 1.27		0	 0
+2001	 1.27		0	 0
+2002	 1.23		1	 0
+2003	 1.27		1	 0
+2004	 1.17		4	 0
+2005	 1.24		1	 0
+2006	 1.31		0	 0
+2007	 1.23		2	 0
+2008	 1.25		1	 0
+2009	 1.27		0	 0
+2010	 1.21		2	 0
+2011	 1.21		2	 0
+2012	 1.21		1	 0
+2013	 1.17		4	 0
+2014	 1.19		4	 0
+2015	 1.24		1	 0
+2016	 1.25		3	 0
+2017	 1.19		2	 0
+
+TOTAL Day Violations:   29.0
+TOTAL Batt Violations:  0.0
+Run time: 0:13:38.561982
+
+
+
+
+Seed ARG:  3
+Iteration 0:  TOKYO, 2002 
+Iteration 1:  TOKYO, 2001 
+Iteration 2:  TOKYO, 2006 
+Iteration 3:  TOKYO, 2000 
+Iteration 4:  TOKYO, 2002 
+Iteration 5:  TOKYO, 2003 
+Iteration 6:  TOKYO, 2000 
+Iteration 7:  TOKYO, 2002 
+Iteration 8:  TOKYO, 2000 
+Iteration 9:  TOKYO, 2008 
+Iteration 10:  TOKYO, 2003 
+Iteration 11:  TOKYO, 2004 
+Iteration 12:  TOKYO, 2009 
+Iteration 13:  TOKYO, 2006 
+Iteration 14:  TOKYO, 2002 
+Iteration 15:  TOKYO, 2009 
+Iteration 16:  TOKYO, 2005 
+Iteration 17:  TOKYO, 2004 
+Iteration 18:  TOKYO, 2001 
+Iteration 19:  TOKYO, 2007 
+Iteration 20:  TOKYO, 2009 
+Iteration 21:  TOKYO, 2002 
+Iteration 22:  TOKYO, 2007 
+Iteration 23:  TOKYO, 2005 
+Iteration 24:  TOKYO, 2005 
+Iteration 25:  TOKYO, 2004 
+Iteration 26:  TOKYO, 2003 
+Iteration 27:  TOKYO, 2002 
+Iteration 28:  TOKYO, 2009 
+Iteration 29:  TOKYO, 2000 
+Iteration 30:  TOKYO, 2006 
+Iteration 31:  TOKYO, 2008 
+Iteration 32:  TOKYO, 2001 
+Iteration 33:  TOKYO, 2004 
+Iteration 34:  TOKYO, 2009 
+Iteration 35:  TOKYO, 2009 
+Iteration 36:  TOKYO, 2001 
+Iteration 37:  TOKYO, 2003 
+Iteration 38:  TOKYO, 2008 
+Iteration 39:  TOKYO, 2009 
+Iteration 40:  TOKYO, 2004 
+Iteration 41:  TOKYO, 2005 
+Iteration 42:  TOKYO, 2009 
+Iteration 43:  TOKYO, 2003 
+Iteration 44:  TOKYO, 2000 
+Iteration 45:  TOKYO, 2000 
+Iteration 46:  TOKYO, 2005 
+Iteration 47:  TOKYO, 2003 
+Iteration 48:  TOKYO, 2006 
+Iteration 49:  TOKYO, 2006 
+Train time: 0:12:43.795216
+YEAR	AVG_RWD		VIOLATIONS
+			DAY	BATT
+2000	 1.18		0	 0
+2001	 1.17		0	 0
+2002	 1.18		0	 0
+2003	 1.17		1	 0
+2004	 1.09		5	 1
+2005	 1.14		1	 0
+2006	 1.2		0	 0
+2007	 1.13		3	 1
+2008	 1.15		1	 0
+2009	 1.18		0	 0
+2010	 1.13		3	 0
+2011	 1.09		5	 0
+2012	 1.13		2	 0
+2013	 1.12		3	 0
+2014	 1.12		4	 1
+2015	 1.16		2	 0
+2016	 1.12		5	 1
+2017	 1.13		1	 0
+
+TOTAL Day Violations:   36.0
+TOTAL Batt Violations:  4.0
+Run time: 0:13:20.695631
+
+
+
+
+Seed ARG:  4
+Iteration 0:  TOKYO, 2002 
+Iteration 1:  TOKYO, 2004 
+Iteration 2:  TOKYO, 2008 
+Iteration 3:  TOKYO, 2000 
+Iteration 4:  TOKYO, 2006 
+Iteration 5:  TOKYO, 2000 
+Iteration 6:  TOKYO, 2007 
+Iteration 7:  TOKYO, 2007 
+Iteration 8:  TOKYO, 2006 
+Iteration 9:  TOKYO, 2009 
+Iteration 10:  TOKYO, 2008 
+Iteration 11:  TOKYO, 2004 
+Iteration 12:  TOKYO, 2009 
+Iteration 13:  TOKYO, 2000 
+Iteration 14:  TOKYO, 2005 
+Iteration 15:  TOKYO, 2003 
+Iteration 16:  TOKYO, 2000 
+Iteration 17:  TOKYO, 2005 
+Iteration 18:  TOKYO, 2004 
+Iteration 19:  TOKYO, 2002 
+Iteration 20:  TOKYO, 2002 
+Iteration 21:  TOKYO, 2007 
+Iteration 22:  TOKYO, 2009 
+Iteration 23:  TOKYO, 2006 
+Iteration 24:  TOKYO, 2009 
+Iteration 25:  TOKYO, 2007 
+Iteration 26:  TOKYO, 2004 
+Iteration 27:  TOKYO, 2005 
+Iteration 28:  TOKYO, 2000 
+Iteration 29:  TOKYO, 2000 
+Iteration 30:  TOKYO, 2001 
+Iteration 31:  TOKYO, 2005 
+Iteration 32:  TOKYO, 2007 
+Iteration 33:  TOKYO, 2008 
+Iteration 34:  TOKYO, 2004 
+Iteration 35:  TOKYO, 2003 
+Iteration 36:  TOKYO, 2003 
+Iteration 37:  TOKYO, 2007 
+Iteration 38:  TOKYO, 2006 
+Iteration 39:  TOKYO, 2001 
+Iteration 40:  TOKYO, 2009 
+Iteration 41:  TOKYO, 2006 
+Iteration 42:  TOKYO, 2007 
+Iteration 43:  TOKYO, 2007 
+Iteration 44:  TOKYO, 2005 
+Iteration 45:  TOKYO, 2000 
+Iteration 46:  TOKYO, 2004 
+Iteration 47:  TOKYO, 2004 
+Iteration 48:  TOKYO, 2005 
+Iteration 49:  TOKYO, 2002 
+Train time: 0:13:07.606286
+YEAR	AVG_RWD		VIOLATIONS
+			DAY	BATT
+2000	 1.25		0	 0
+2001	 1.25		0	 0
+2002	 1.22		2	 1
+2003	 1.27		1	 1
+2004	 1.15		6	 2
+2005	 1.23		1	 0
+2006	 1.3		0	 0
+2007	 1.2		4	 2
+2008	 1.23		2	 0
+2009	 1.26		0	 0
+2010	 1.19		3	 2
+2011	 1.16		5	 0
+2012	 1.18		3	 1
+2013	 1.13		7	 1
+2014	 1.13		8	 2
+2015	 1.2		4	 0
+2016	 1.16		9	 4
+2017	 1.14		8	 0
+
+TOTAL Day Violations:   63.0
+TOTAL Batt Violations:  16.0
+Run time: 0:13:44.864718
+
+
+
+
+Seed ARG:  5
+Iteration 0:  TOKYO, 2009 
+Iteration 1:  TOKYO, 2006 
+Iteration 2:  TOKYO, 2003 
+Iteration 3:  TOKYO, 2003 
+Iteration 4:  TOKYO, 2002 
+Iteration 5:  TOKYO, 2000 
+Iteration 6:  TOKYO, 2003 
+Iteration 7:  TOKYO, 2007 
+Iteration 8:  TOKYO, 2002 
+Iteration 9:  TOKYO, 2005 
+Iteration 10:  TOKYO, 2002 
+Iteration 11:  TOKYO, 2004 
+Iteration 12:  TOKYO, 2006 
+Iteration 13:  TOKYO, 2003 
+Iteration 14:  TOKYO, 2003 
+Iteration 15:  TOKYO, 2006 
+Iteration 16:  TOKYO, 2002 
+Iteration 17:  TOKYO, 2000 
+Iteration 18:  TOKYO, 2001 
+Iteration 19:  TOKYO, 2003 
+Iteration 20:  TOKYO, 2005 
+Iteration 21:  TOKYO, 2007 
+Iteration 22:  TOKYO, 2003 
+Iteration 23:  TOKYO, 2005 
+Iteration 24:  TOKYO, 2003 
+Iteration 25:  TOKYO, 2002 
+Iteration 26:  TOKYO, 2008 
+Iteration 27:  TOKYO, 2007 
+Iteration 28:  TOKYO, 2003 
+Iteration 29:  TOKYO, 2000 
+Iteration 30:  TOKYO, 2003 
+Iteration 31:  TOKYO, 2002 
+Iteration 32:  TOKYO, 2009 
+Iteration 33:  TOKYO, 2003 
+Iteration 34:  TOKYO, 2005 
+Iteration 35:  TOKYO, 2007 
+Iteration 36:  TOKYO, 2008 
+Iteration 37:  TOKYO, 2007 
+Iteration 38:  TOKYO, 2008 
+Iteration 39:  TOKYO, 2009 
+Iteration 40:  TOKYO, 2005 
+Iteration 41:  TOKYO, 2001 
+Iteration 42:  TOKYO, 2006 
+Iteration 43:  TOKYO, 2006 
+Iteration 44:  TOKYO, 2009 
+Iteration 45:  TOKYO, 2006 
+Iteration 46:  TOKYO, 2007 
+Iteration 47:  TOKYO, 2003 
+Iteration 48:  TOKYO, 2009 
+Iteration 49:  TOKYO, 2007 
+Train time: 0:12:50.849347
+YEAR	AVG_RWD		VIOLATIONS
+			DAY	BATT
+2000	 1.34		1	 0
+2001	 1.35		0	 0
+2002	 1.32		1	 0
+2003	 1.36		1	 0
+2004	 1.27		5	 0
+2005	 1.34		1	 0
+2006	 1.39		0	 0
+2007	 1.31		4	 0
+2008	 1.34		2	 0
+2009	 1.36		0	 0
+2010	 1.29		4	 0
+2011	 1.26		7	 0
+2012	 1.3		1	 0
+2013	 1.27		4	 0
+2014	 1.26		7	 0
+2015	 1.32		2	 0
+2016	 1.31		5	 0
+2017	 1.27		6	 0
+
+TOTAL Day Violations:   51.0
+TOTAL Batt Violations:  0.0
+Run time: 0:13:29.035695
+
+

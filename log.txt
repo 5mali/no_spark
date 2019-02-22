@@ -20,9 +20,6 @@ A
 |--> A5  : norm_ENP = enp/(BMAX/2)---------------> worse than A
 |--> A6  : Huber Loss----------------------------> a little better than A, a little worse than A1
 |
-|
-|--> A7  : LR SCHEDULING [/\ (3,0,2), \/ 0.8]---->
-|
 |--> A1C : EPSILON SCHEDULING [10,0.75,30]-------> worse than A
 |        : Target Update       6 months-----|
 |
@@ -32,9 +29,16 @@ A
 |==> A1D  : SEED TEST (9/10)---------------------> One seed is catastrophic
 |
 |
+|--> A7* : LR SCHEDULING [/\ (3,0,2), \/ 0.8]----> better than A1D
+|==> A7  : SEED TEST ( 10/10)--------------------> TEST PASSED!!!!!!!!
+|
+|
+|
+|
 B: TRAIN TKY[2000-2010]
 
-
+BEXP: LR SCHEDULING, EPSILON SCHEDULING, HUBER LOSS, WIDTH=50 ---OK
+BEXP: LR SCHEDULING, EPSILON SCHEDULING, HUBER LOSS, WIDTH=100---?
 **************************************************************
 A1
 **************************************************************

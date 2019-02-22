@@ -71,6 +71,15 @@ B1A: SIGMOID Activations:-------------------------> weights are kind of weird. G
 |
 |==> B1A : SEED TEST (10/10)----------------------> 
 |
+C*: EPSILON SCHEDULING [10, 0.75, 30]-------------> SCRIPT SUPPORT
+|   LR SCHEDULING      [(3, 0, 2), 30]----|
+|   TRAIN              TKY[2000-2010]-----|
+|   LOSS               [ MSE ]------------|
+|   [ip->FC1->RELU->FC2->RELU->FCOUT->op]-| 
+|
+|
+|
+|
 
 
 

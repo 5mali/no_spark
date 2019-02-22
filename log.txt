@@ -6,11 +6,21 @@ A
 |--> A1A : EPSILON = 0.95----------------------> worse than A
 |--> A1B : EPSILON = 0.80----------------------> worse than A
 |
-|--> A2: Equal BLIM_LO and BLIM_HI Penalties---> worse than A
-|--> A3: Target Update = 6 months--------------> little worse than A1, better than A
-|--> A4: Target Update = 3 months--------------> worse than A
+|--> A2  : Equal BLIM_LO and BLIM_HI Penalties---> worse than A
+|--> A3* : Target Update = 6 months--------------> little worse than A1, better than A
+|--> A3a : Target Update = 3 months--------------> worse than A
+|--> A3b : Target Update = 9 months--------------> worse than A
+|--> A3c : Target Update = 12 months-------------> worse than A
+|
+|--> A5  : norm_ENP = enp/(BMAX/2)---------------> worse than A
+|--> A6  : Huber Loss
 |
 |==> A1:SEED TEST (10/10)--not perfect but robust enough
+|==> A3:SEED TEST ( 9/10)--almost perfect
+|
+|
+|--> A1C :EPSILON SCHEDULING [10,0.75,30]
+|        :Target Update       6 months
 |
 B: TRAIN TKY[2000-2010]
 

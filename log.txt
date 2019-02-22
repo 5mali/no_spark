@@ -35,7 +35,19 @@ A
 |
 |
 |
-B: TRAIN TKY[2000-2010]
+B*: EPSILON SCHEDULING [10, 0.75, 30]------------> similar to A7. Higher average rewards
+|   LR SCHEDULING      [(3, 0, 2), 30]---|
+|   TRAIN              TKY[2000-2010]----|
+|   HUBER LOSS---------------------------|
+|
+|
+|
+B1: EPSILON SCHEDULING [10, 0.75, 30]-------------> higher average rewards than B but one major violation
+|   LR SCHEDULING      [(3, 0, 2), 30]---|
+|   TRAIN              TKY[2000-2010]----|
+|   MSE LOSS-----------------------------|
+|
+
 
 BEXP: LR SCHEDULING, EPSILON SCHEDULING, HUBER LOSS, WIDTH=50 ---OK
 BEXP: LR SCHEDULING, EPSILON SCHEDULING, HUBER LOSS, WIDTH=100---?

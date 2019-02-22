@@ -68,6 +68,10 @@ B4: EPSILON SCHEDULING [10, 0.75, 30]-------------> slight degradation in perfor
 |   WIDTH              [100]-------------|
 |
 B1A: SIGMOID Activations:-------------------------> weights are kind of weird. Good performance
+|
+|==> B1A : SEED TEST (10/10)----------------------> 
+|
+
 
 
 **************************************************************

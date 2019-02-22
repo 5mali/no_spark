@@ -77,7 +77,12 @@ B1B: EPSILON SCHEDULING [10, 0.75, 30]------------->
 |   TRAIN              TKY[2000-2010]-----|
 |   LOSS               [ MSE ]------------|
 |   DEPTH              [1xLeakyRELU]------|
-|   [ip->FC1->LeRELU->FCOUT->op]-|
+|   [ip->FC1->LeRELU->FCOUT->op]----------|
+|
+|==> B1B : SEED TEST (XX/10)----------------------> 
+|
+|
+|
 |
 |
 C*: EPSILON SCHEDULING [10, 0.75, 30]-------------> SCRIPT SUPPORT
@@ -87,12 +92,19 @@ C*: EPSILON SCHEDULING [10, 0.75, 30]-------------> SCRIPT SUPPORT
 |   DEPTH              [2xRELU]-----------|
 |   [ip->FC1->RELU->FC2->RELU->FCOUT->op]-| 
 |
+|==> C : SEED TEST (XX/10)-----------------------> 
+|
+|
 C1: EPSILON SCHEDULING [10, 0.75, 30]-------------> 
+|                                         |
 |   LR SCHEDULING      [(3, 0, 2), 30]----|
 |   TRAIN              TKY[2000-2010]-----|
 |   LOSS               [ MSE ]------------|
 |   DEPTH              [2xSIGMOID]--------|
 |   [ip->FC1->RELU->FC2->RELU->FCOUT->op]-|  
+|
+|==> C1 : SEED TEST (XX/10)----------------------> 
+|
 |
 C2: EPSILON SCHEDULING [10, 0.75, 30]-------------> 
 |   LR SCHEDULING      [(3, 0, 2), 30]--------|
@@ -100,7 +112,12 @@ C2: EPSILON SCHEDULING [10, 0.75, 30]------------->
 |   LOSS               [ MSE ]----------------|
 |   DEPTH              [2xLeRELU]-------------|
 |   [ip->FC1->LeRELU->FC2->LeRELU->FCOUT->op]-|  
-
+|
+|==> C2 : SEED TEST (XX/10)----------------------> 
+|
+|
+|
+|
 
 
 **************************************************************

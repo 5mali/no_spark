@@ -61,9 +61,15 @@ B3: EPSILON SCHEDULING [10, 0.75, 30]-------------> slight degradation in perfor
 |   HUBER LOSS---------------------------|
 |   WIDTH              [20]--------------|
 |
+B4: EPSILON SCHEDULING [10, 0.75, 30]-------------> slight degradation in performance
+|   LR SCHEDULING      [(3, 0, 2), 30]---|
+|   TRAIN              TKY[2000-2010]----|
+|   HUBER LOSS---------------------------|
+|   WIDTH              [100]-------------|
+|
+B1A: SIGMOID Activations:-------------------------> weights are kind of weird
 
-BEXP: LR SCHEDULING, EPSILON SCHEDULING, HUBER LOSS, WIDTH=50 ---OK
-BEXP: LR SCHEDULING, EPSILON SCHEDULING, HUBER LOSS, WIDTH=100---?
+
 **************************************************************
 A1
 **************************************************************

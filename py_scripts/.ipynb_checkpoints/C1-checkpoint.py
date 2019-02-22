@@ -634,7 +634,7 @@ for iteration in range(NO_OF_ITERATIONS):
     capm.eno    = ENO(LOCATION,YEAR, shuffle=False, day_balance=False) #instantiate the environment inside the CAPM class
     capm.HMAX   = capm.eno.SMAX #maximum power output of solar cell is set in CAPM object using the value in ENO object
 
-    print('Iteration {}:  {}, {} '.format(iteration, LOCATION.upper(), YEAR))
+#     print('Iteration {}:  {}, {} '.format(iteration, LOCATION.upper(), YEAR))
 
     s, r, day_end, year_end = capm.reset()
     yr_record      = np.empty(4)

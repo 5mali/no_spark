@@ -46,7 +46,7 @@ B1*: EPSILON SCHEDULING [10, 0.75, 30]-------------> higher average rewards than
 |   LR SCHEDULING      [(3, 0, 2), 30]---|
 |   TRAIN              TKY[2000-2010]----|
 |   MSE LOSS-----------------------------|
-|==> B1 : SEED TEST ( 10/10)--------------------> Better than B
+|==> B1 : SEED TEST ( 9/10)--------------------> Better than B
 |
 |
 B2: EPSILON SCHEDULING [10, 0.75, 30]-------------> lower average rewards than B but lesser violations too
@@ -69,7 +69,7 @@ B4: EPSILON SCHEDULING [10, 0.75, 30]-------------> slight degradation in perfor
 |
 B1A: SIGMOID Activations:-------------------------> weights are kind of weird. Good performance
 |
-|==> B1A : SEED TEST (10/10)----------------------> 
+|==> B1A : SEED TEST (/10)----------------------> 
 |
 |
 B1B: EPSILON SCHEDULING [10, 0.75, 30]-------------> 
@@ -116,7 +116,14 @@ C2: EPSILON SCHEDULING [10, 0.75, 30]------------->
 |==> C2 : SEED TEST (XX/10)----------------------> 
 |
 |
+C3: EPSILON SCHEDULING [10, 0.75, 30]-------------> 
+|   LR SCHEDULING      [(3, 0, 2), 30]--------|
+|   TRAIN              TKY[2000-2010]---------|
+|   LOSS               [ HUBER ]--------------|
+|   DEPTH              [2xLeRELU]-------------|
+|   [ip->FC1->LeRELU->FC2->LeRELU->FCOUT->op]-|  
 |
+|==> C3 : SEED TEST (XX/10)---------------------->
 |
 
 

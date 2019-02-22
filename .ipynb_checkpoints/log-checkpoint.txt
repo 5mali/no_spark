@@ -67,7 +67,7 @@ B4: EPSILON SCHEDULING [10, 0.75, 30]-------------> slight degradation in perfor
 |   HUBER LOSS---------------------------|
 |   WIDTH              [100]-------------|
 |
-B1A: SIGMOID Activations:-------------------------> weights are kind of weird
+B1A: SIGMOID Activations:-------------------------> weights are kind of weird. Good performance
 
 
 **************************************************************

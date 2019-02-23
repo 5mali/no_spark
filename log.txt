@@ -125,7 +125,35 @@ C3: EPSILON SCHEDULING [10, 0.75, 30]------------->
 |
 |==> C3 : SEED TEST (6/10)---------------------->
 |
+|
+|
+|
+|
+D : Redoing all experiments with new learning rate scheduling
+|
+D1a1: 1 X RELU, MSE
+D1a2: 1 X RELU, HUBER
 
+D1b1: 1 X SIGMOID, MSE
+D1b2: 1 x SIGMOID, HUBER
+
+D1c1: 1 x LeRELU, MSE
+D1c2: 1 x LeRELU, HUBER
+
+D2a1: 2 X RELU, MSE
+D2a2: 2 X RELU, HUBER
+
+D2b1: 2 X SIGMOID, MSE
+D2b2: 2 x SIGMOID, HUBER
+
+D2c1: 2 x LeRELU, MSE
+D2c2: 2 x LeRELU, HUBER
+
+
+|
+D2: 
+|
+D3:
 
 **************************************************************
 A1

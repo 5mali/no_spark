@@ -210,6 +210,9 @@ H2b2 - 3/10
 H2c1 - 4/10
 H2c2 - 4/10 
 
+I1 - Scheduling V4, Reward Function 1c, 18 months,1xRELU,MSE
+I2 - Scheduling V4, Reward Function 1c, 6 months,1xRELU,MSE
+
 **************************************************************
 A1
 **************************************************************

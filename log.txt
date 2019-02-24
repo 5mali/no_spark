@@ -149,7 +149,7 @@ D2b2: 2 x SIGMOID, HUBER - 5/10
 D2c1: 2 x LeRELU, MSE - 6/10
 D2c2: 2 x LeRELU, HUBER - 7/10
 
-E : 100 iterations, scheduling scheme 2
+E : 100 iterations, scheduling scheme 2, 3months update
 
 E1a1 - 10/10
 E1a2 - 10/10
@@ -174,10 +174,19 @@ F1a1 - 9/10
 F2b1 - 6/10
 F1b1 - 5/10
 
-|
-D2: 
-|
-D3:
+G: Derived from E1a1: 100 iterations with scheduling scheme 2
+G1a: 1 X RELU, MSE, 3 months update
+G1b: 9 months update
+G1c: 12 months update
+G1d: 18 monnths update
+
+Derived from E1a2
+G2a: 1x RELU, HUBER, 3 months update
+G2b: 9 months update
+G2c: 12 months update
+G2d: 18 monnths update
+
+G1a->G3: Scheduling Scheme 3, target update = 18 months
 
 **************************************************************
 A1

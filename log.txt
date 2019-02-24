@@ -131,24 +131,48 @@ C3: EPSILON SCHEDULING [10, 0.75, 30]------------->
 |
 D : Redoing all experiments with new learning rate scheduling
 |
-D1a1: 1 X RELU, MSE
-D1a2: 1 X RELU, HUBER
+D1a1: 1 X RELU, MSE - 7/10
+D1a2: 1 X RELU, HUBER - 5/10
 
-D1b1: 1 X SIGMOID, MSE
-D1b2: 1 x SIGMOID, HUBER
+D1b1: 1 X SIGMOID, MSE - 7/10
+D1b2: 1 x SIGMOID, HUBER - 6/10
 
-D1c1: 1 x LeRELU, MSE
-D1c2: 1 x LeRELU, HUBER
+D1c1: 1 x LeRELU, MSE - 6/10
+D1c2: 1 x LeRELU, HUBER - 10/10
 
-D2a1: 2 X RELU, MSE
-D2a2: 2 X RELU, HUBER
+D2a1: 2 X RELU, MSE - 3/10
+D2a2: 2 X RELU, HUBER - 5/10
 
-D2b1: 2 X SIGMOID, MSE
-D2b2: 2 x SIGMOID, HUBER
+D2b1: 2 X SIGMOID, MSE - 7/10
+D2b2: 2 x SIGMOID, HUBER - 5/10
 
-D2c1: 2 x LeRELU, MSE
-D2c2: 2 x LeRELU, HUBER
+D2c1: 2 x LeRELU, MSE - 6/10
+D2c2: 2 x LeRELU, HUBER - 7/10
 
+E : 100 iterations, scheduling scheme 2
+
+E1a1 - 10/10
+E1a2 - 10/10
+
+E1b1 - 8/10
+E1b2 - 7/10
+
+E1c1 - 7/10
+E1c2 - 8/10
+
+E2a1 - 6/10
+E2a2 - 7/10
+
+E2b1 - 8/10
+E2b2 - 3/10
+
+E2c1 - 4/10
+E2c2 - 4/10 
+
+F: initialization normal (0.01)
+F1a1 - 9/10
+F2b1 - 6/10
+F1b1 - 5/10
 
 |
 D2: 

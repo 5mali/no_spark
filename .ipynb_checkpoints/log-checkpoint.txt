@@ -149,7 +149,7 @@ D2b2: 2 x SIGMOID, HUBER - 5/10
 D2c1: 2 x LeRELU, MSE - 6/10
 D2c2: 2 x LeRELU, HUBER - 7/10
 
-E : 100 iterations, scheduling scheme 2, 3months update
+E : 100 iterations, scheduling scheme 2, 6months update
 
 E1a1 - 10/10
 E1a2 - 10/10
@@ -190,7 +190,7 @@ G1d->G3: Scheduling Scheme 3, target update = 18 months, 1xRELU
 G3a: 1 X RELU, MSE
 G3b: 1 x RELU, Huber
 
-H : 100 iterations, scheduling scheme 2, 18 months update
+E->H : 100 iterations, scheduling scheme 2, 18 months update
 
 H1a1 - 10/10
 H1a2 - 10/10

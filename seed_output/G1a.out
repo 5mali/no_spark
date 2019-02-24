@@ -28,3 +28,33 @@ TOTAL Day Violations:   42.0
 TOTAL Batt Violations:  0.0
 
 Run time: 0:30:04.825578
+
+
+Seed ARG:  1
+Device:  cpu
+Train time: 0:29:09.077724
+YEAR	AVG_RWD		VIOLATIONS
+			DAY	BATT
+2000	 1.26		0	 0
+2001	 1.33		0	 0
+2002	 1.23		1	 0
+2003	 1.22		3	 0
+2004	 1.25		2	 0
+2005	 1.3		0	 0
+2006	 1.26		0	 0
+2007	 1.27		2	 0
+2008	 1.31		0	 0
+2009	 1.29		0	 0
+2010	 1.27		1	 0
+2011	 1.31		0	 0
+2012	 1.28		0	 0
+2013	 1.27		1	 0
+2014	 1.26		1	 0
+2015	 1.27		0	 0
+2016	 1.28		2	 0
+2017	 1.29		0	 0
+
+TOTAL Day Violations:   13.0
+TOTAL Batt Violations:  0.0
+
+Run time: 0:29:41.225844

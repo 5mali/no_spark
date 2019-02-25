@@ -6,10 +6,12 @@ do
 	then
 		rm ./seed_output/${name}.out
 	fi
+	
+	parallel -k python ::: ./py_scripts/${name}.py ::: 0 1 2 3 4 5 6 7 8 9 > ./seed_output/${name}.out
 
-	for seed_index in {0..9} 
-	do
+
+#	for seed_index in {0..9} 
+#	do
 ##		python ./py_scripts/${name}.py ${seed_index} >> ./seed_output/${name}.out 
-		parallel --max-args 1 python ./py_scripts/$name.py
-	done 
+#	done 
 done

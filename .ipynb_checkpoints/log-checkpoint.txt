@@ -129,7 +129,7 @@ C3: EPSILON SCHEDULING [10, 0.75, 30]------------->
 |
 |
 |
-D : Redoing all experiments with new learning rate scheduling
+D : Redoing all experiments with new learning rate scheduling, 18  months update
 |
 D1a1: 1 X RELU, MSE - 7/10
 D1a2: 1 X RELU, HUBER - 5/10
@@ -151,8 +151,8 @@ D2c2: 2 x LeRELU, HUBER - 7/10
 
 E : 100 iterations, scheduling scheme 2, 6months update
 
-E1a1 - 10/10
-E1a2 - 10/10
+E1a1* - 10/10
+E1a2* - 10/10
 
 E1b1 - 8/10
 E1b2 - 7/10
@@ -174,26 +174,28 @@ F1a1 - 9/10
 F2b1 - 6/10
 F1b1 - 5/10
 
-G: Derived from E1a1: 100 iterations with scheduling scheme 2
-G1a: 1 X RELU, MSE, 3 months update
-G1b: 9 months update
-G1c: 12 months update
-G1d: 18 monnths update
+G: Derived from E1a1: 100 iterations with scheduling scheme 2,1 X RELU, MSE, 
+G1a: 3 months update - 6/10
+E1a1 : 6 months update - 10/10
+G1b: 9 months update - 7/10
+G1c: 12 months update - 9/10
+G1d: 18 months update - 7/10
 
-Derived from E1a2
-G2a: 1x RELU, HUBER, 3 months update
-G2b: 9 months update
-G2c: 12 months update
-G2d: 18 monnths update
+Derived from E1a2, 1x RELU, HUBER,
+G2a:  3 months update - 8/10
+E1a2: 6 months update - 10/10
+G2b: 9 months update - 7/10
+G2c: 12 months update - 8/10
+G2d: 18 months update - 5/10
 
 G1d->G3: Scheduling Scheme 3, target update = 18 months, 1xRELU
-G3a: 1 X RELU, MSE
-G3b: 1 x RELU, Huber
+G3a: 1 X RELU, MSE - 10/10*
+G3b: 1 x RELU, Huber - 9/10
 
 E->H : 100 iterations, scheduling scheme 2, 18 months update
 
-H1a1 - 10/10
-H1a2 - 10/10
+H1a1 - 7/10
+H1a2 - 5/10
 
 H1b1 - 8/10
 H1b2 - 7/10
@@ -210,8 +212,8 @@ H2b2 - 3/10
 H2c1 - 4/10
 H2c2 - 4/10 
 
-I1 - Scheduling V4, Reward Function 1c, 18 months
-I2 - Scheduling V4, Reward Function 1c, 6 months
+I1 - Scheduling V4, Reward Function 1c, 18 months,1xRELU,MSE
+I2 - Scheduling V4, Reward Function 1c, 6 months,1xRELU,MSE
 
 **************************************************************
 A1

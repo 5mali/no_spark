@@ -8,3 +8,5 @@ Seed ARG:  6
 Seed ARG:  7
 Seed ARG:  8
 Seed ARG:  9
+
+parallel -k python ::: ./py_scripts/B2_exp.py ::: 0 1 2 3 4 5 6 7 8 9 > ./seed_output/B2_exp.out

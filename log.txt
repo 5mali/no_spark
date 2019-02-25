@@ -219,6 +219,8 @@ I4 - Scheduling V4, Reward Function 1c, 1 months,1xRELU,MSE - 10/10
 
 J1 - Scheduling V4, Reward Function 1c, 18 months,1xRELU,Huber
 J2 - Scheduling V4, Reward Function 1c, 6 months,1xRELU,Huber
+J3 - Scheduling V4, Reward Function 1c, 3 months,1xRELU,Huber
+
 
 **************************************************************
 A1

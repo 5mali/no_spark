@@ -1,0 +1,365 @@
+A
+|
+|--> A1* : EPSILON SCHEDULING-[10,0.75,30]------> No Batt violations, 
+|                                                 slightly reduced average rewards as compared to A
+|                                                 battery seems to stay above 50% - don't know why
+|==> A1  : SEED TEST (10/10)--not perfect but robust enough
+|
+|--> A1A : EPSILON = 0.95------------------------> worse than A
+|--> A1B : EPSILON = 0.80------------------------> worse than A
+|
+|--> A2  : Equal BLIM_LO and BLIM_HI Penalties---> worse than A
+|
+|--> A3* : Target Update = 6 months--------------> little worse than A1, better than A
+|==> A3  : SEED TEST ( 9/10)---------------------> almost perfect
+|
+|--> A3a : Target Update = 3 months--------------> worse than A
+|--> A3b : Target Update = 9 months--------------> worse than A
+|--> A3c : Target Update = 12 months-------------> worse than A
+|
+|--> A5  : norm_ENP = enp/(BMAX/2)---------------> worse than A
+|--> A6  : Huber Loss----------------------------> a little better than A, a little worse than A1
+|
+|--> A1C : EPSILON SCHEDULING [10,0.75,30]-------> worse than A
+|        : Target Update       6 months-----|
+|
+|--> A1D* : EPSILON SCHEDULING [10,0.75,30]------> No Batt Violations. Better performance than A1
+|         : Huber Loss-----------------------|
+|
+|==> A1D  : SEED TEST (9/10)---------------------> One seed is catastrophic
+|
+|
+|--> A7* : LR SCHEDULING [/\ (3,0,2), \/ 0.8]----> better than A1D
+|==> A7  : SEED TEST ( 10/10)--------------------> TEST PASSED!!!!!!!!
+|
+|
+|
+|
+B*: EPSILON SCHEDULING [10, 0.75, 30]------------> similar to A7. Higher average rewards
+|   LR SCHEDULING      [(3, 0, 2), 30]---|
+|   TRAIN              TKY[2000-2010]----|
+|   HUBER LOSS---------------------------|
+|==> B  : SEED TEST (10/10)--------------------> TEST PASSED!!!!!(Some seeds have violations)
+|
+|
+B1*: EPSILON SCHEDULING [10, 0.75, 30]-------------> higher average rewards than B but one major violation
+|   LR SCHEDULING      [(3, 0, 2), 30]---|
+|   TRAIN              TKY[2000-2010]----|
+|   MSE LOSS-----------------------------|
+|==> B1 : SEED TEST ( 9/10)--------------------> Better than B
+|
+|
+B2: EPSILON SCHEDULING [10, 0.75, 30]-------------> lower average rewards than B but lesser violations too
+|   LR SCHEDULING      [(3, 0, 2), 30]---|
+|   TRAIN              TKY[2000-2010]----|
+|   HUBER LOSS---------------------------|
+|   TARGET UPDATE      [6 months]--------|
+|
+B3: EPSILON SCHEDULING [10, 0.75, 30]-------------> slight degradation in performance
+|   LR SCHEDULING      [(3, 0, 2), 30]---|
+|   TRAIN              TKY[2000-2010]----|
+|   HUBER LOSS---------------------------|
+|   WIDTH              [20]--------------|
+|
+B4: EPSILON SCHEDULING [10, 0.75, 30]-------------> slight degradation in performance
+|   LR SCHEDULING      [(3, 0, 2), 30]---|
+|   TRAIN              TKY[2000-2010]----|
+|   HUBER LOSS---------------------------|
+|   WIDTH              [100]-------------|
+|
+B1A: SIGMOID Activations:-------------------------> weights are kind of weird. Good performance
+|
+|==> B1A : SEED TEST (8/10)----------------------> catastrophic results in some seeds
+|
+|
+B1B: EPSILON SCHEDULING [10, 0.75, 30]-------------> 
+|   LR SCHEDULING      [(3, 0, 2), 30]----|
+|   TRAIN              TKY[2000-2010]-----|
+|   LOSS               [ MSE ]------------|
+|   DEPTH              [1xLeakyRELU]------|
+|   [ip->FC1->LeRELU->FCOUT->op]----------|
+|
+|==> B1B : SEED TEST (8/10)----------------------> catastrophic results in some seeds
+|
+|
+|
+|
+|
+C*: EPSILON SCHEDULING [10, 0.75, 30]-------------> SCRIPT SUPPORT
+|   LR SCHEDULING      [(3, 0, 2), 30]----|
+|   TRAIN              TKY[2000-2010]-----|
+|   LOSS               [ MSE ]------------|
+|   DEPTH              [2xRELU]-----------|
+|   [ip->FC1->RELU->FC2->RELU->FCOUT->op]-| 
+|
+|==> C : SEED TEST (7/10)-----------------------> Not as good as B1 but good
+|
+|
+C1: EPSILON SCHEDULING [10, 0.75, 30]-------------> 
+|                                         |
+|   LR SCHEDULING      [(3, 0, 2), 30]----|
+|   TRAIN              TKY[2000-2010]-----|
+|   LOSS               [ MSE ]------------|
+|   DEPTH              [2xSIGMOID]--------|
+|   [ip->FC1->RELU->FC2->RELU->FCOUT->op]-|  
+|
+|==> C1 : SEED TEST (6/10)----------------------> catastrophic results
+|
+|
+C2: EPSILON SCHEDULING [10, 0.75, 30]-------------> 
+|   LR SCHEDULING      [(3, 0, 2), 30]--------|
+|   TRAIN              TKY[2000-2010]---------|
+|   LOSS               [ MSE ]----------------|
+|   DEPTH              [2xLeRELU]-------------|
+|   [ip->FC1->LeRELU->FC2->LeRELU->FCOUT->op]-|  
+|
+|==> C2 : SEED TEST (6/10)----------------------> 
+|
+|
+C3: EPSILON SCHEDULING [10, 0.75, 30]-------------> 
+|   LR SCHEDULING      [(3, 0, 2), 30]--------|
+|   TRAIN              TKY[2000-2010]---------|
+|   LOSS               [ HUBER ]--------------|
+|   DEPTH              [2xLeRELU]-------------|
+|   [ip->FC1->LeRELU->FC2->LeRELU->FCOUT->op]-|  
+|
+|==> C3 : SEED TEST (6/10)---------------------->
+|
+|
+|
+|
+|
+D : Redoing all experiments with new learning rate scheduling, 18  months update
+|
+D1a1: 1 X RELU, MSE - 7/10
+D1a2: 1 X RELU, HUBER - 5/10
+
+D1b1: 1 X SIGMOID, MSE - 7/10
+D1b2: 1 x SIGMOID, HUBER - 6/10
+
+D1c1: 1 x LeRELU, MSE - 6/10
+D1c2: 1 x LeRELU, HUBER - 10/10
+
+D2a1: 2 X RELU, MSE - 3/10
+D2a2: 2 X RELU, HUBER - 5/10
+
+D2b1: 2 X SIGMOID, MSE - 7/10
+D2b2: 2 x SIGMOID, HUBER - 5/10
+
+D2c1: 2 x LeRELU, MSE - 6/10
+D2c2: 2 x LeRELU, HUBER - 7/10
+
+E : 100 iterations, scheduling scheme 2, 6months update
+
+E1a1* - 10/10
+E1a2* - 10/10
+
+E1b1 - 8/10
+E1b2 - 7/10
+
+E1c1 - 7/10
+E1c2 - 8/10
+
+E2a1 - 6/10
+E2a2 - 7/10
+
+E2b1 - 8/10
+E2b2 - 3/10
+
+E2c1 - 4/10
+E2c2 - 4/10 
+
+F: initialization normal (0.01), 3 months update
+F1a1 - 9/10
+F2b1 - 6/10
+F1b1 - 5/10
+
+G: Derived from E1a1: 100 iterations with scheduling scheme 2,1 X RELU, MSE, 
+G1a: 3 months update - 6/10
+E1a1 : 6 months update - 10/10
+G1b: 9 months update - 7/10
+G1c: 12 months update - 9/10
+G1d: 18 months update - 7/10
+
+Derived from E1a2, 1x RELU, HUBER,
+G2a:  3 months update - 8/10
+E1a2: 6 months update - 10/10
+G2b: 9 months update - 7/10
+G2c: 12 months update - 8/10
+G2d: 18 months update - 5/10
+
+G1d->G3: Scheduling Scheme 3, target update = 18 months, 1xRELU
+G3a: 1 X RELU, MSE - 10/10*
+G3b: 1 x RELU, Huber - 9/10
+
+E->H : 100 iterations, scheduling scheme 2, 18 months update
+
+H1a1 - 7/10
+H1a2 - 5/10
+
+H1b1 - 8/10
+H1b2 - 7/10
+
+H1c1 - 7/10
+H1c2 - 8/10
+
+H2a1 - 6/10
+H2a2 - 7/10
+
+H2b1 - 8/10
+H2b2 - 3/10
+
+H2c1 - 4/10
+H2c2 - 4/10 
+
+I1 - Scheduling V4, Reward Function 1c, 18 months,1xRELU,MSE
+I2 - Scheduling V4, Reward Function 1c, 6 months,1xRELU,MSE
+
+**************************************************************
+A1
+**************************************************************
+                       
+HYPOTHESIS:
+Constant high EPSILON may reduce performance
+
+MODEL:
+A1 : INPUT->FC1->RELU->FC_OUT->OUTPUT
+LOSS : MSE
+
+LEARNING:   INIT_WEIGHT     = FC1 : KAIMING
+                              OUT : XAVIER
+            WIDTH           = 50
+            DEPTH           = 1 + 1
+            WEIGHT_DECAY    = NONE
+            LR              = 1e-4
+            UPDATE_FREQ     = 18 MONTHS
+            MEMORY          = 24 MONTHS
+            ITERATION       = 50
+            BATCH_SIZE      = 32
+            EPSILON         = EPSILON SCHEDULING-[0.762 to 0.967]             
+            GAMMA           = 0.9                
+            LAMBDA          = 0.95
+            
+TRAINING:   TOKYO[2010]
+            BATTERY_RESET    = 0 %
+            REWARD_FUNC      = TYPE1
+                               violation_penalty = 3
+                               battery high limit penalty = -2
+                               battery low  limit penalty = -4
+                               R = [-1 to 2] bell curve
+            REWARD_BROADCAST = TRUE
+            
+            LAST TRAINING ITERATIONS = N/A
+            EPSILON                  = N/A
+            LR                       = N/A
+            
+TESTING:    TOKYO[2000-2018]
+            GREEDY POLICY
+
+
+***************************
+RESULTS
+***************************
+SEED: 161
+YEAR	AVG_RWD		VIOLATIONS
+                    DAY	BATT
+2000	 1.33		0	 0
+2001	 1.33		0	 0
+2002	 1.27		1	 0
+2003	 1.32		1	 0
+2004	 1.23		4	 0
+2005	 1.31		1	 0
+2006	 1.36		0	 0
+2007	 1.3		3	 0
+2008	 1.31		2	 0
+2009	 1.32		0	 0
+2010	 1.26		2	 0
+2011	 1.29		2	 0
+2012	 1.26		2	 0
+2013	 1.21		5	 0
+2014	 1.23		4	 0
+2015	 1.32		0	 0
+2016	 1.27		5	 0
+2017	 1.19		4	 0
+
+***************************
+DISCUSSION AND CONCLUSIONS
+***************************
+Weights dont' explode.
+Battery stays well above of BLIM
+
+**************************************************************
+A
+**************************************************************
+Restarting from scratch.
+BMAX = 10000
+                       
+HYPOTHESIS:
+Starting from a bare minimum and experimenting with hyper parameters
+
+MODEL:
+A : INPUT->FC1->RELU->FC_OUT->OUTPUT
+LOSS : MSE
+
+LEARNING:   INIT_WEIGHT     = FC1 : KAIMING
+                              OUT : XAVIER
+            WIDTH           = 50
+            DEPTH           = 1 + 1
+            WEIGHT_DECAY    = NONE
+            LR              = 1e-4
+            UPDATE_FREQ     = 18 MONTHS
+            MEMORY          = 24 MONTHS
+            ITERATION       = 50
+            BATCH_SIZE      = 32
+            EPSILON         = 0.9             
+            GAMMA           = 0.9                
+            LAMBDA          = 0.95
+            
+TRAINING:   TOKYO[2010]
+            BATTERY_RESET    = 0 %
+            REWARD_FUNC      = TYPE1
+                               violation_penalty = 3
+                               battery high limit penalty = -2
+                               battery low  limit penalty = -4
+                               R = [-1 to 2] bell curve
+            REWARD_BROADCAST = TRUE
+            
+            LAST TRAINING ITERATIONS = N/A
+            EPSILON                  = N/A
+            LR                       = N/A
+            
+TESTING:    TOKYO[2000-2018]
+            GREEDY POLICY
+
+
+***************************
+RESULTS
+***************************
+SEED: 161
+YEAR	AVG_RWD		VIOLATIONS
+                    DAY	BATT
+2000	 1.37		0	 0
+2001	 1.38		0	 0
+2002	 1.34		1	 0
+2003	 1.35		1	 0
+2004	 1.29		5	 3
+2005	 1.34		1	 0
+2006	 1.39		0	 0
+2007	 1.32		5	 2
+2008	 1.35		2	 0
+2009	 1.36		2	 0
+2010	 1.32		3	 0
+2011	 1.28		7	 3
+2012	 1.31		3	 1
+2013	 1.3		6	 0
+2014	 1.26		8	 0
+2015	 1.35		2	 1
+2016	 1.29		7	 3
+2017	 1.3		5	 0
+
+
+***************************
+DISCUSSION AND CONCLUSIONS
+***************************
+Weights dont' explode.
+Battery stays well above of BLIM

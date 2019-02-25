@@ -212,15 +212,20 @@ H2b2 - 3/10
 H2c1 - 4/10
 H2c2 - 4/10 
 
-I1 - Scheduling V4, Reward Function 1c, 18 months,1xRELU,MSE - 10/10
-I2 - Scheduling V4, Reward Function 1c, 6 months,1xRELU,MSE - 8/10
-I3 - Scheduling V4, Reward Function 1c, 3 months,1xRELU,MSE - 10/10
-I4 - Scheduling V4, Reward Function 1c, 1 months,1xRELU,MSE - 10/10
+I1 - Scheduling V4, Reward Function 1c, 18 months,1xRELU,MSE   - 10/10
+I2 - Scheduling V4, Reward Function 1c, 6 months,1xRELU,MSE    - 8/10
+I3 - Scheduling V4, Reward Function 1c, 3 months,1xRELU,MSE    - 10/10
+I4 - Scheduling V4, Reward Function 1c, 1 months,1xRELU,MSE    - 10/10
 
-J1 - Scheduling V4, Reward Function 1c, 18 months,1xRELU,Huber
-J2 - Scheduling V4, Reward Function 1c, 6 months,1xRELU,Huber
-J3 - Scheduling V4, Reward Function 1c, 3 months,1xRELU,Huber
-J4 - Scheduling V4, Reward Function 1c, 1 months,1xRELU,Huber
+J1 - Scheduling V4, Reward Function 1c, 18 months,1xRELU,Huber - 9/10
+J2 - Scheduling V4, Reward Function 1c, 6 months,1xRELU,Huber  - 10/10
+J3 - Scheduling V4, Reward Function 1c, 3 months,1xRELU,Huber  - 8/10
+J4 - Scheduling V4, Reward Function 1c, 1 months,1xRELU,Huber  - 
+
+K1 - Scheduling V4, Reward Function 1c, 18 months,1xSIGMOID,MSE - 6/10
+K2 - Scheduling V4, Reward Function 1c, 6 months,1xSIGMOID,MSE  - /10
+K3 - Scheduling V4, Reward Function 1c, 3 months,1xSIGMOID,MSE  - /10
+K4 - Scheduling V4, Reward Function 1c, 1 months,1xSIGMOID,MSE  - /10
 
 **************************************************************
 A1

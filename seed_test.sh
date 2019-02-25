@@ -1,14 +1,14 @@
 #!/bin/bash
-
+#### PWD should be ~/../no_spark
 for name in "$@"
 do
-	if [ -e ./seed_output/${name}.out ]
+	if [ -e ${PWD}/seed_output/${name}.out ]
 	then
-		rm ./seed_output/${name}.out
+		rm ${PWD}/seed_output/${name}.out
 	fi
 
 	for seed_index in {0..9} 
 	do
-		python ./py_scripts/${name}.py ${seed_index} >> ./seed_output/${name}.out 
+		python ${PWD}/py_scripts/${name}.py ${seed_index} >> ${PWD}/seed_output/${name}.out 
 	done 
 done

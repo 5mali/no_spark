@@ -4,7 +4,7 @@
 ######SBATCH --output=${1}job.txt
 #SBATCH -p knm
 ###### #SBATCH --gres=gpu:1
-#SBATCH --ntasks=1
+#SBATCH -n 15
 ######SBATCH --time=60:00
 ###### #SBATCH --mem-per-cpu=100
 

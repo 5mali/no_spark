@@ -63,7 +63,7 @@ os.environ['PYTHONHASHSEED'] = str(seed)
 # In[ ]:
 
 
-NAME       = 'J4'
+NAME       = 'N2'
 MODELNAME  = NAME + '_' + str(seed) + '.pt'
 print("\nMODEL : ", NAME)
 print("SEED  : ",seed_arg)
@@ -422,7 +422,7 @@ LR                  = 1e-4          # learning rate
 EPSILON             = 0.9               # greedy policy
 GAMMA               = 0.9                 # reward discount
 LAMBDA              = 0.95                # parameter decay
-TARGET_REPLACE_ITER = 24*7*4*3    # target update frequency (every two months)
+TARGET_REPLACE_ITER = 24*7*4*9    # target update frequency (every two months)
 MEMORY_CAPACITY     = 24*7*4*12*2      # store upto six month worth of memory   
 
 N_ACTIONS           = 10 #no. of duty cycles (0,1,2,3,4)
@@ -462,8 +462,8 @@ class Net(nn.Module):
     
     def forward(self, x):
         x = self.fc1(x)
-        x = F.relu(x)
-#         x = F.leaky_relu(x)
+#         x = F.relu(x)
+        x = F.leaky_relu(x)
 #         x = self.fc2(x)
 #         x = F.relu(x)
 #         x = self.fc3(x)

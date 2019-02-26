@@ -63,7 +63,7 @@ os.environ['PYTHONHASHSEED'] = str(seed)
 # In[ ]:
 
 
-NAME       = 'J4'
+NAME       = 'N4'
 MODELNAME  = NAME + '_' + str(seed) + '.pt'
 print("\nMODEL : ", NAME)
 print("SEED  : ",seed_arg)
@@ -462,8 +462,8 @@ class Net(nn.Module):
     
     def forward(self, x):
         x = self.fc1(x)
-        x = F.relu(x)
-#         x = F.leaky_relu(x)
+#         x = F.relu(x)
+        x = F.leaky_relu(x)
 #         x = self.fc2(x)
 #         x = F.relu(x)
 #         x = self.fc3(x)

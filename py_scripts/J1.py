@@ -37,14 +37,14 @@ import numpy as np
 
 
 import torch
-from IPython.display import clear_output
+import socket
+# from IPython.display import clear_output
 
 
 # In[ ]:
 
 
 seed_arg = int(sys.argv[1])
-print ("\n\nSeed ARG: ",seed_arg)
 # seed_arg = 0
 
 
@@ -65,7 +65,9 @@ os.environ['PYTHONHASHSEED'] = str(seed)
 
 NAME       = 'J1'
 MODELNAME  = NAME + '_' + str(seed) + '.pt'
-
+print("\nMODEL : ", NAME)
+print("SEED  : ",seed_arg)
+print("HOST  : ",socket.gethostname())
 
 # In[ ]:
 
@@ -374,12 +376,13 @@ class CAPM (object):
             if(self.day_violation_flag == False): #penalty for violating battery limits anytime during the day - triggers once everyday
                 self.violation_counter += 1
                 self.day_violation_flag = True
-        
+                
         #calculate ENP before clipping
         self.enp = self.BOPT - self.batt
         
         self.batt = np.clip(self.batt, self.BMIN, self.BMAX) #clip battery values within permitted level
         self.btrack = np.append(self.btrack, self.batt) #track battery levels
+        
         
         #proceed to the next time step
        
@@ -610,7 +613,7 @@ avg_reward_rec = [] #record the yearly average rewards over the entire duration 
 batt_violation_rec = []
 day_violation_rec = []
 
-print('Device: ', dqn.device)
+print('DEVICE: ', dqn.device)
 #TRAINING STARTS
 tic = datetime.now()
 
@@ -778,7 +781,7 @@ for iteration in range(NO_OF_ITERATIONS):
 # In[ ]:
 
 
-print('Train time: {}'.format(datetime.now() - tic))
+print('Train time: {}\n'.format(datetime.now() - tic))
 torch.save(dqn.eval_net.state_dict(), './models/'+MODELNAME)
 
 
@@ -870,7 +873,7 @@ for YEAR in np.arange(2000,2018):
 
 results = np.delete(results,0,0)
 print('YEAR\tAVG_RWD\t\tVIOLATIONS')
-print('\t\t\tDAY\tBATT')
+print('\t\t\t\tDAY\tBATT')
 
 for x in np.arange(0,results.shape[0]):
     print('{}\t {}\t\t{}\t {}'.format(int(results[x,0]), np.around(results[x,1],2), int(results[x,2]), int(results[x,-1])))
@@ -882,5 +885,5 @@ print("TOTAL Batt Violations: ",np.sum(results[:,-1]))
 # In[ ]:
 
 
-print('\nRun time: {}'.format(datetime.now() - tic))
+# print('\nRun time: {}'.format(datetime.now() - tic))
 

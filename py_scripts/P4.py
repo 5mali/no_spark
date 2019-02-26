@@ -429,7 +429,7 @@ N_ACTIONS           = 10 #no. of duty cycles (0,1,2,3,4)
 N_STATES            = 4 #number of state space parameter [batt, enp, henergy, fcast]
 
 
-HIDDEN_LAYER        = 200
+HIDDEN_LAYER        = 100
 NO_OF_ITERATIONS    = 100
 GPU                 = False
 HELP                = 0.05

@@ -318,15 +318,15 @@ J5 - Scheduling V3, Reward Function 1c, Update =  1, Iterations = 100, 1xRELU, H
 |       L : calculate ENP AFTER clipping
 |       L1 - Scheduling V3, Reward Function 1c, Update = 18, Iterations = 100, 1xRELU,HUBER  - 9/10
 |       L2 - Scheduling V3, Reward Function 1c, Update =  9, Iterations = 100, 1xRELU,HUBER  - 9/10
-|       L3 - Scheduling V3, Reward Function 1c, Update =  6, Iterations = 100, 1xRELU,HUBER  - /10
+|       L3 - Scheduling V3, Reward Function 1c, Update =  6, Iterations = 100, 1xRELU,HUBER  - 9/10
 |       L4 - Scheduling V3, Reward Function 1c, Update =  3, Iterations = 100, 1xRELU,HUBER  - /10
-|       L5 - Scheduling V3, Reward Function 1c, Update =  1, Iterations = 100, 1xRELU,HUBER  - /10
+|       L5 - Scheduling V3, Reward Function 1c, Update =  1, Iterations = 100, 1xRELU,HUBER  - 8/10
 | 
 | 
 |
 |
 N: calculate ENP before clipping
-N1 - Scheduling V3, Reward Function 1c, Update = 18, Iterations = 100, 1xLeRELU, HUBER  - /10
+N1 - Scheduling V3, Reward Function 1c, Update = 18, Iterations = 100, 1xLeRELU, HUBER  - 9/10
 N2 - Scheduling V3, Reward Function 1c, Update =  9, Iterations = 100, 1xLeRELU, HUBER  - /10
 N3 - Scheduling V3, Reward Function 1c, Update =  6, Iterations = 100, 1xLeRELU, HUBER  - /10
 N4 - Scheduling V3, Reward Function 1c, Update =  3, Iterations = 100, 1xLeRELU, HUBER  - /10
@@ -335,8 +335,8 @@ N5 - Scheduling V3, Reward Function 1c, Update =  1, Iterations = 100, 1xLeRELU,
 |-------> USELESS EXPERIMENT
 |       M : calculate ENP AFTER clipping
 |       M1 - Scheduling V3, Reward Function 1c, Update = 18, Iterations = 100, 1xLeRELU, HUBER  - 9/10
-|       M2 - Scheduling V3, Reward Function 1c, Update =  9, Iterations = 100, 1xLeRELU, HUBER  - /10
-|       M3 - Scheduling V3, Reward Function 1c, Update =  6, Iterations = 100, 1xLeRELU, HUBER  - /10
+|       M2 - Scheduling V3, Reward Function 1c, Update =  9, Iterations = 100, 1xLeRELU, HUBER  - 9/10
+|       M3 - Scheduling V3, Reward Function 1c, Update =  6, Iterations = 100, 1xLeRELU, HUBER  - 8/10
 |       M4 - Scheduling V3, Reward Function 1c, Update =  3, Iterations = 100, 1xLeRELU, HUBER  - /10
 |       M5 - Scheduling V3, Reward Function 1c, Update =  1, Iterations = 100, 1xLeRELU, HUBER  - /10
 |       
@@ -354,7 +354,7 @@ K4 - Scheduling V3, Reward Function 1c, Update =  1, Iterations = 100, 1xSIGMOID
 |
 |
 O: Scheduling V3, Reward Function 1c, Update = 18, Iterations = 100, 1xRELU,MSE
-O1: WT_DECAY = 1e-5
+O1: WT_DECAY = 1e-5 - 8/10
 O2: WT_DECAY = 1e-4
 O3: WT_DECAY = 1e-3
 O4: WT_DECAY = 1e-2

@@ -303,8 +303,8 @@ I4 - Scheduling V3, Reward Function 1c, Update =  1, Iterations = 100, 1xRELU,MS
 |
 |
 J: calculate ENP before clipping
-J1 - Scheduling V3, Reward Function 1c, Update = 18, Iterations = 100, 1xRELU, HUBER  - /10 = J1_COPY1 - 9/10
-J2 - Scheduling V3, Reward Function 1c, Update =  9, Iterations = 100, 1xRELU, HUBER  - /10 
+J1 - Scheduling V3, Reward Function 1c, Update = 18, Iterations = 100, 1xRELU, HUBER  - 9/10 = J1_COPY1 - 9/10
+J2 - Scheduling V3, Reward Function 1c, Update =  9, Iterations = 100, 1xRELU, HUBER  - 9/10 
 J3 - Scheduling V3, Reward Function 1c, Update =  6, Iterations = 100, 1xRELU, HUBER  - /10 = J2_COPY2 - 10/10
 J4 - Scheduling V3, Reward Function 1c, Update =  3, Iterations = 100, 1xRELU, HUBER  - /10 = J3_COPY3 - 8/10
 J5 - Scheduling V3, Reward Function 1c, Update =  1, Iterations = 100, 1xRELU, HUBER  - /10 
@@ -319,7 +319,7 @@ J5 - Scheduling V3, Reward Function 1c, Update =  1, Iterations = 100, 1xRELU, H
 |       L1 - Scheduling V3, Reward Function 1c, Update = 18, Iterations = 100, 1xRELU,HUBER  - 9/10
 |       L2 - Scheduling V3, Reward Function 1c, Update =  9, Iterations = 100, 1xRELU,HUBER  - 9/10
 |       L3 - Scheduling V3, Reward Function 1c, Update =  6, Iterations = 100, 1xRELU,HUBER  - 9/10
-|       L4 - Scheduling V3, Reward Function 1c, Update =  3, Iterations = 100, 1xRELU,HUBER  - /10
+|       L4 - Scheduling V3, Reward Function 1c, Update =  3, Iterations = 100, 1xRELU,HUBER  - 9/10
 |       L5 - Scheduling V3, Reward Function 1c, Update =  1, Iterations = 100, 1xRELU,HUBER  - 8/10
 | 
 | 
@@ -327,7 +327,7 @@ J5 - Scheduling V3, Reward Function 1c, Update =  1, Iterations = 100, 1xRELU, H
 |
 N: calculate ENP before clipping
 N1 - Scheduling V3, Reward Function 1c, Update = 18, Iterations = 100, 1xLeRELU, HUBER  - 9/10
-N2 - Scheduling V3, Reward Function 1c, Update =  9, Iterations = 100, 1xLeRELU, HUBER  - /10
+N2 - Scheduling V3, Reward Function 1c, Update =  9, Iterations = 100, 1xLeRELU, HUBER  - 9/10
 N3 - Scheduling V3, Reward Function 1c, Update =  6, Iterations = 100, 1xLeRELU, HUBER  - /10
 N4 - Scheduling V3, Reward Function 1c, Update =  3, Iterations = 100, 1xLeRELU, HUBER  - /10
 N5 - Scheduling V3, Reward Function 1c, Update =  1, Iterations = 100, 1xLeRELU, HUBER  - /10

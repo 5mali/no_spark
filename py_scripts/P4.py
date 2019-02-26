@@ -431,7 +431,7 @@ N_STATES            = 4 #number of state space parameter [batt, enp, henergy, fc
 
 HIDDEN_LAYER        = 200
 NO_OF_ITERATIONS    = 100
-GPU                 = True 
+GPU                 = False 
 HELP                = 0.05
 
 

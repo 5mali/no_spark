@@ -365,10 +365,10 @@ O5: WT_DECAY = 1e-1 - 2/10
 |
 |
 P: Scheduling V3, Reward Function 1c, Update = 18, Iterations = 100, 1xRELU,MSE, WT_DECAY=None
-P1 - WIDTH = 20
-P2 - WIDTH = 50 = I1 - 10/10
-P3 - WIDTH = 100
-P4 - WIDTH = 200
+P1 - WIDTH = 20  = 8/10
+P2 - WIDTH = 50  = 10/10 = I1
+P3 - WIDTH = 100 = 10/10 (9/10)
+P4 - WIDTH = 200 =
 
 
 

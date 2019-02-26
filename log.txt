@@ -356,8 +356,8 @@ K4 - Scheduling V3, Reward Function 1c, Update =  1, Iterations = 100, 1xSIGMOID
 O: Scheduling V3, Reward Function 1c, Update = 18, Iterations = 100, 1xRELU,MSE
 O1: WT_DECAY = 1e-5 - 8/10
 O2: WT_DECAY = 1e-4 - 8/10
-O3: WT_DECAY = 1e-3
-O4: WT_DECAY = 1e-2
+O3: WT_DECAY = 1e-3 - 6/10
+O4: WT_DECAY = 1e-2 - 
 O5: WT_DECAY = 1e-1 - 2/10
 |
 |

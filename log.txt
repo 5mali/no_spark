@@ -300,10 +300,18 @@ I4 - Scheduling V3, Reward Function 1c, Update =  1, Iterations = 100, 1xRELU,MS
 |
 |=> RELU activations with MSE LOSS give good performance
 |
+
 |
+J: calculate ENP before clipping
+J1 - Scheduling V3, Reward Function 1c, Update = 18, Iterations = 100, 1xRELU, HUBER  - /10 = J1_COPY1 - 9/10
+J2 - Scheduling V3, Reward Function 1c, Update =  9, Iterations = 100, 1xRELU, HUBER  - /10 
+J3 - Scheduling V3, Reward Function 1c, Update =  6, Iterations = 100, 1xRELU, HUBER  - /10 = J2_COPY2 - 10/10
+J4 - Scheduling V3, Reward Function 1c, Update =  3, Iterations = 100, 1xRELU, HUBER  - /10 = J3_COPY3 - 8/10
+J5 - Scheduling V3, Reward Function 1c, Update =  1, Iterations = 100, 1xRELU, HUBER  - /10 
+
 |
 |-------> USELESS EXPERIMENT
-|       L : calculate ENP after clipping
+|       L : calculate ENP AFTER clipping
 |       L1 - Scheduling V3, Reward Function 1c, Update = 18, Iterations = 100, 1xRELU,HUBER  - 9/10
 |       L2 - Scheduling V3, Reward Function 1c, Update =  9, Iterations = 100, 1xRELU,HUBER  - 9/10
 |       L3 - Scheduling V3, Reward Function 1c, Update =  6, Iterations = 100, 1xRELU,HUBER  - /10
@@ -312,24 +320,9 @@ I4 - Scheduling V3, Reward Function 1c, Update =  1, Iterations = 100, 1xRELU,MS
 | 
 |
 |
-J: calculate ENP before clipping
-J1 J1- Scheduling V3, Reward Function 1c, Update = 18, Iterations = 100, 1xRELU,HUBER  -  9/10
-
-J2 - Scheduling V3, Reward Function 1c, Update =  6, Iterations = 100, 1xRELU,HUBER  -  10/10
-J3 - Scheduling V3, Reward Function 1c, Update =  3, Iterations = 100, 1xRELU,HUBER  -   8/10
 |
 |=> RELU activations with Huber loss seem OK but MSE loss seems to give better performance
 |
-|
-|
-|-------> USELESS EXPERIMENT
-|       M : calculate ENP after clipping
-|       M1 - Scheduling V3, Reward Function 1c, Update = 18, Iterations = 100, 1xLeRELU, HUBER  - 9/10
-|       M2 - Scheduling V3, Reward Function 1c, Update =  9, Iterations = 100, 1xLeRELU, HUBER  - /10
-|       M3 - Scheduling V3, Reward Function 1c, Update =  6, Iterations = 100, 1xLeRELU, HUBER  - /10
-|       M4 - Scheduling V3, Reward Function 1c, Update =  3, Iterations = 100, 1xLeRELU, HUBER  - /10
-|       M5 - Scheduling V3, Reward Function 1c, Update =  1, Iterations = 100, 1xLeRELU, HUBER  - /10
-|       
 |
 |
 N: calculate ENP before clipping
@@ -339,8 +332,18 @@ N3 - Scheduling V3, Reward Function 1c, Update =  6, Iterations = 100, 1xLeRELU,
 N4 - Scheduling V3, Reward Function 1c, Update =  3, Iterations = 100, 1xLeRELU, HUBER  - /10
 N5 - Scheduling V3, Reward Function 1c, Update =  1, Iterations = 100, 1xLeRELU, HUBER  - /10
 |
+|-------> USELESS EXPERIMENT
+|       M : calculate ENP AFTER clipping
+|       M1 - Scheduling V3, Reward Function 1c, Update = 18, Iterations = 100, 1xLeRELU, HUBER  - 9/10
+|       M2 - Scheduling V3, Reward Function 1c, Update =  9, Iterations = 100, 1xLeRELU, HUBER  - /10
+|       M3 - Scheduling V3, Reward Function 1c, Update =  6, Iterations = 100, 1xLeRELU, HUBER  - /10
+|       M4 - Scheduling V3, Reward Function 1c, Update =  3, Iterations = 100, 1xLeRELU, HUBER  - /10
+|       M5 - Scheduling V3, Reward Function 1c, Update =  1, Iterations = 100, 1xLeRELU, HUBER  - /10
+|       
 |
 |
+|
+K: calculate ENP before clipping
 K1 - Scheduling V3, Reward Function 1c, Update = 18, Iterations = 100, 1xSIGMOID, MSE  - 6/10
 K2 - Scheduling V3, Reward Function 1c, Update =  6, Iterations = 100, 1xSIGMOID, MSE  - 4/10
 K3 - Scheduling V3, Reward Function 1c, Update =  3, Iterations = 100, 1xSIGMOID, MSE  - 7/10

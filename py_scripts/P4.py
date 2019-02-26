@@ -63,7 +63,7 @@ os.environ['PYTHONHASHSEED'] = str(seed)
 # In[ ]:
 
 
-NAME       = 'P3'
+NAME       = 'P4'
 MODELNAME  = NAME + '_' + str(seed) + '.pt'
 print("\nMODEL : ", NAME)
 print("SEED  : ",seed_arg)

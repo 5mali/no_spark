@@ -127,90 +127,153 @@ C3: EPSILON SCHEDULING [10, 0.75, 30]------------->
 |
 |
 |
+|-> Sticking with one hidden layer networks. Two layers seem more complicated.
+|-> Best results came with B and B1. 
+|-> Scheduling V1, Reward Function 1a, 1 X RELU, MSE/HUBER
+|=> Maturity at 30 iterations.
+|
+|=> Experiment with different activation functions/loss combinations
+|
+D : Scheduling V1, Reward Function 1a, Update = 18 months, Iterations = 50
+
+D1a1  : Scheduling V1, Reward Function 1a, 18 months, 1 X RELU, MSE      -  7/10
+D1a2  : Scheduling V1, Reward Function 1a, 18 months, 1 X RELU, HUBER    -  5/10
+
+D1b1  : Scheduling V1, Reward Function 1a, 18 months, 1 X SIGMOID, MSE   -  7/10
+D1b2  : Scheduling V1, Reward Function 1a, 18 months, 1 x SIGMOID, HUBER -  6/10
+
+D1c1  : Scheduling V1, Reward Function 1a, 18 months, 1 x LeRELU, MSE    -  6/10
+D1c2* : Scheduling V1, Reward Function 1a, 18 months, 1 x LeRELU, HUBER  - 10/10
+
+D2a1  : Scheduling V1, Reward Function 1a, 18 months, 2 X RELU, MSE      -  3/10
+D2a2  : Scheduling V1, Reward Function 1a, 18 months, 2 X RELU, HUBER    -  5/10
+
+D2b1  : Scheduling V1, Reward Function 1a, 18 months, 2 X SIGMOID, MSE   -  7/10
+D2b2  : Scheduling V1, Reward Function 1a, 18 months, 2 x SIGMOID, HUBER -  5/10
+
+D2c1  : Scheduling V1, Reward Function 1a, 18 months, 2 x LeRELU, MSE    -  6/10
+D2c2  : Scheduling V1, Reward Function 1a, 18 months, 2 x LeRELU, HUBER  -  7/10
 |
 |
-D : Redoing all experiments with new learning rate scheduling, 18  months update
+|==> D1c2: LeRELU + Huber seems promising. Will explore later.
 |
-D1a1: 1 X RELU, MSE - 7/10
-D1a2: 1 X RELU, HUBER - 5/10
+|=> May need longer time for greedier behavior with low learning rate.
+|=> Increase to 100 iterations
+|=> Try longer learning at low learning rate
+|
+|
+H : Scheduling V1, Reward Function 1a, Update = 18 months, Iterations = 100
+|
+H1a1  : Scheduling V1, Reward Function 1a, 18 months, 1 X RELU, MSE      -  7/10
+H1a2  : Scheduling V1, Reward Function 1a, 18 months, 1 X RELU, HUBER    -  5/10
 
-D1b1: 1 X SIGMOID, MSE - 7/10
-D1b2: 1 x SIGMOID, HUBER - 6/10
+H1b1  : Scheduling V1, Reward Function 1a, 18 months, 1 X SIGMOID, MSE   -  8/10
+H1b2  : Scheduling V1, Reward Function 1a, 18 months, 1 X SIGMOID, HUBER -  7/10
 
-D1c1: 1 x LeRELU, MSE - 6/10
-D1c2: 1 x LeRELU, HUBER - 10/10
+H1c1  : Scheduling V1, Reward Function 1a, 18 months, 1 X LeRELU, MSE    -  7/10
+H1c2* : Scheduling V1, Reward Function 1a, 18 months, 1 X LeRELU, HUBER  - 10/10
 
-D2a1: 2 X RELU, MSE - 3/10
-D2a2: 2 X RELU, HUBER - 5/10
+H2a1  : Scheduling V1, Reward Function 1a, 18 months, 2 X RELU, MSE      -  6/10
+H2a2  : Scheduling V1, Reward Function 1a, 18 months, 2 X RELU, HUBER    -  7/10
 
-D2b1: 2 X SIGMOID, MSE - 7/10
-D2b2: 2 x SIGMOID, HUBER - 5/10
+H2b1  : Scheduling V1, Reward Function 1a, 18 months, 2 X SIGMOID, MSE   -  8/10
+H2b2  : Scheduling V1, Reward Function 1a, 18 months, 2 X SIGMOID, HUBER -  3/10
 
-D2c1: 2 x LeRELU, MSE - 6/10
-D2c2: 2 x LeRELU, HUBER - 7/10
+H2c1  : Scheduling V1, Reward Function 1a, 18 months, 2 X LeRELU, MSE    -  4/10
+H2c2  : Scheduling V1, Reward Function 1a, 18 months, 2 X LeRELU, HUBER  -  4/10 
+|
+|
+|==> All results are IDENTICAL results with Dxxx models
+|==> At iteration = 50, LR drops to lower than 1e-5. 
+|==> This obviously seems to have no effect on any further effect on the model weights.
+|==> Increasing iterations does not help
+|
+|=> Increase update rate to 6 months
+|
+|
+E : Scheduling V2, Reward Function 1a, Update = 6 months, Iterations = 100
+|
+E1a1* - Scheduling V1, Reward Function 1a, 6 months, 1 X RELU, MSE     - 10/10
+E1a2* - Scheduling V1, Reward Function 1a, 6 months, 1 X RELU, HUBER   - 10/10
 
-E : 100 iterations, scheduling scheme 2, 6months update
+E1b1 - Scheduling V1, Reward Function 1a, 6 months, 1 X SIGMOID, MSE   -  8/10
+E1b2 - Scheduling V1, Reward Function 1a, 6 months, 1 X SIGMOID, HUBER -  7/10
 
-E1a1* - 10/10
-E1a2* - 10/10
+E1c1 - Scheduling V1, Reward Function 1a, 6 months, 1 X LeRELU, MSE    -  7/10
+E1c2 - Scheduling V1, Reward Function 1a, 6 months, 1 X LeRELU, HUBER  -  8/10
 
-E1b1 - 8/10
-E1b2 - 7/10
+E2a1 - Scheduling V1, Reward Function 1a, 6 months, 2 X RELU, MSE      -  6/10
+E2a2 - Scheduling V1, Reward Function 1a, 6 months, 2 X RELU, HUBER    -  7/10
 
-E1c1 - 7/10
-E1c2 - 8/10
+E2b1 - Scheduling V1, Reward Function 1a, 6 months, 2 X SIGMOID, MSE   -  8/10
+E2b2 - Scheduling V1, Reward Function 1a, 6 months, 2 X SIGMOID, HUBER -  3/10
 
-E2a1 - 6/10
-E2a2 - 7/10
+E2c1 - Scheduling V1, Reward Function 1a, 6 months, 2 X LeRELU, MSE    -  4/10
+E2c2 - Scheduling V1, Reward Function 1a, 6 months, 2 X LeRELU, HUBER  -  4/10 
+|
+|
+|==> Increasing the update rate seems to have detrimental effect on LeRELU+Huber
+|==> However, RELU + MSE/HUBER seems to have much better performance.
+|==> Some seeds have catastrophic peformances. I suspect overfitting.
+|==> A large learning rate and low exploration rate too early on in the training might be responsible.
+|==> The initial weight may also be too large.
+|
+|=> Use weight initializations that are NOT xavier/kaiming.
+|
+|
+|~~~~~~~~F: initialization normal (0.01), 3 months update
+|        |
+|        F1a1 - 9/10
+|        F2b1 - 6/10
+|        F1b1 - 5/10
+|        |
+|        |
+|        |==> Very bad performance. Weight initialization is not the problem it seems.
+|        |==> Repeating this experiment with L2 loss might give some insight.
+|
+|
+|=> Since the results vary due to the target update frequency, experiment with different target updates.
+|
+|
+G1 : Scheduling V1, Reward Function 1a, Update = x, Iterations = 100, 1 X RELU, MSE
+|
+G1a  : Scheduling V1, Reward Function 1a, Update = 3,  Iterations = 100, 1 X RELU, MSE -  6/10
+E1a1*: Scheduling V1, Reward Function 1a, Update = 6,  Iterations = 100, 1 X RELU, MSE - 10/10
+G1b  : Scheduling V1, Reward Function 1a, Update = 9,  Iterations = 100, 1 X RELU, MSE -  7/10
+G1c  : Scheduling V1, Reward Function 1a, Update = 12, Iterations = 100, 1 X RELU, MSE -  9/10
+G1d  : Scheduling V1, Reward Function 1a, Update = 18, Iterations = 100, 1 X RELU, MSE -  7/10
+|
+|
+|
+G2 : Scheduling V1, Reward Function 1a, Update = x, Iterations = 100, 1 X RELU, HUBER
+|
+G2a  : Scheduling V1, Reward Function 1a, Update = 3,  Iterations = 100, 1 X RELU, HUBER -  8/10
+E1a2*: Scheduling V1, Reward Function 1a, Update = 6,  Iterations = 100, 1 X RELU, HUBER - 10/10
+G2b  : Scheduling V1, Reward Function 1a, Update = 9,  Iterations = 100, 1 X RELU, HUBER -  7/10
+G2c  : Scheduling V1, Reward Function 1a, Update = 12, Iterations = 100, 1 X RELU, HUBER -  8/10
+G2d  : Scheduling V1, Reward Function 1a, Update = 18, Iterations = 100, 1 X RELU, HUBER -  5/10
+|
+|
+|
+G4 : Scheduling V1, Reward Function 1a, Update = x, Iterations = 50, 1 X LeRELU, HUBER
+|
+G4a  : Scheduling V1, Reward Function 1a
+G4b  : Scheduling V1, Reward Function 1a
+G4c  : Scheduling V1, Reward Function 1a
+G4d  : Scheduling V1, Reward Function 1a
+|
 
-E2b1 - 8/10
-E2b2 - 3/10
+|
 
-E2c1 - 4/10
-E2c2 - 4/10 
+|
+G1d -> G3: Scheduling V3
+G3a* : Reward Function 1a, Scheduling V3, Update = 18, Iterations = 100, 1 X RELU, MSE   - 10/10
+G3b : Reward Function 1a, Scheduling V3, Update = 18, Iterations = 100, 1 X RELU, HUBER -  9/10
+|
+|
 
-F: initialization normal (0.01), 3 months update
-F1a1 - 9/10
-F2b1 - 6/10
-F1b1 - 5/10
-
-G: Derived from E1a1: 100 iterations with scheduling scheme 2,1 X RELU, MSE, 
-G1a: 3 months update - 6/10
-E1a1 : 6 months update - 10/10
-G1b: 9 months update - 7/10
-G1c: 12 months update - 9/10
-G1d: 18 months update - 7/10
-
-Derived from E1a2, 1x RELU, HUBER,
-G2a:  3 months update - 8/10
-E1a2: 6 months update - 10/10
-G2b: 9 months update - 7/10
-G2c: 12 months update - 8/10
-G2d: 18 months update - 5/10
-
-G1d->G3: Scheduling Scheme 3, target update = 18 months, 1xRELU
-G3a: 1 X RELU, MSE - 10/10*
-G3b: 1 x RELU, Huber - 9/10
-
-E->H : 100 iterations, scheduling scheme 2, 18 months update
-
-H1a1 - 7/10
-H1a2 - 5/10
-
-H1b1 - 8/10
-H1b2 - 7/10
-
-H1c1 - 7/10
-H1c2 - 8/10
-
-H2a1 - 6/10
-H2a2 - 7/10
-
-H2b1 - 8/10
-H2b2 - 3/10
-
-H2c1 - 4/10
-H2c2 - 4/10 
+|
+|
 
 I1 - Scheduling V4, Reward Function 1c, 18 months,1xRELU,MSE   - 10/10
 I2 - Scheduling V4, Reward Function 1c, 6 months,1xRELU,MSE    - 8/10
@@ -223,9 +286,9 @@ J3 - Scheduling V4, Reward Function 1c, 3 months,1xRELU,Huber  - 8/10
 J4 - Scheduling V4, Reward Function 1c, 1 months,1xRELU,Huber  - 
 
 K1 - Scheduling V4, Reward Function 1c, 18 months,1xSIGMOID,MSE - 6/10
-K2 - Scheduling V4, Reward Function 1c, 6 months,1xSIGMOID,MSE  - /10
-K3 - Scheduling V4, Reward Function 1c, 3 months,1xSIGMOID,MSE  - /10
-K4 - Scheduling V4, Reward Function 1c, 1 months,1xSIGMOID,MSE  - /10
+K2 - Scheduling V4, Reward Function 1c, 6 months,1xSIGMOID,MSE  - 4/10
+K3 - Scheduling V4, Reward Function 1c, 3 months,1xSIGMOID,MSE  - 7/10
+K4 - Scheduling V4, Reward Function 1c, 1 months,1xSIGMOID,MSE  - 8/10
 
 **************************************************************
 A1

@@ -300,7 +300,7 @@ I4 - Scheduling V3, Reward Function 1c, Update =  1, Iterations = 100, 1xRELU,MS
 |
 |=> RELU activations with MSE LOSS give good performance
 |
-
+|
 |
 J: calculate ENP before clipping
 J1 - Scheduling V3, Reward Function 1c, Update = 18, Iterations = 100, 1xRELU, HUBER  - /10 = J1_COPY1 - 9/10
@@ -308,7 +308,11 @@ J2 - Scheduling V3, Reward Function 1c, Update =  9, Iterations = 100, 1xRELU, H
 J3 - Scheduling V3, Reward Function 1c, Update =  6, Iterations = 100, 1xRELU, HUBER  - /10 = J2_COPY2 - 10/10
 J4 - Scheduling V3, Reward Function 1c, Update =  3, Iterations = 100, 1xRELU, HUBER  - /10 = J3_COPY3 - 8/10
 J5 - Scheduling V3, Reward Function 1c, Update =  1, Iterations = 100, 1xRELU, HUBER  - /10 
-
+|
+|
+|=> 
+|
+|
 |
 |-------> USELESS EXPERIMENT
 |       L : calculate ENP AFTER clipping
@@ -318,11 +322,7 @@ J5 - Scheduling V3, Reward Function 1c, Update =  1, Iterations = 100, 1xRELU, H
 |       L4 - Scheduling V3, Reward Function 1c, Update =  3, Iterations = 100, 1xRELU,HUBER  - /10
 |       L5 - Scheduling V3, Reward Function 1c, Update =  1, Iterations = 100, 1xRELU,HUBER  - /10
 | 
-|
-|
-|
-|=> RELU activations with Huber loss seem OK but MSE loss seems to give better performance
-|
+| 
 |
 |
 N: calculate ENP before clipping
@@ -351,6 +351,16 @@ K4 - Scheduling V3, Reward Function 1c, Update =  1, Iterations = 100, 1xSIGMOID
 |
 |==> SIGMOID activations are not good for this job
 |
+|
+|
+O: Scheduling V3, Reward Function 1c, Update = 18, Iterations = 100, 1xRELU,MSE
+O1: WT_DECAY = 1e-5
+O2: WT_DECAY = 1e-4
+O3: WT_DECAY = 1e-3
+O4: WT_DECAY = 1e-2
+O5: WT_DECAY = 1e-1
+
+
 
 
 **************************************************************

@@ -257,29 +257,40 @@ G2d  : Scheduling V1, Reward Function 1a, Update = 18, Iterations = 100, 1 X REL
 |
 G4 : Scheduling V1, Reward Function 1a, Update = x, Iterations = 50, 1 X LeRELU, HUBER
 |
-G4a  : Scheduling V1, Reward Function 1a
-G4b  : Scheduling V1, Reward Function 1a
-G4c  : Scheduling V1, Reward Function 1a
-G4d  : Scheduling V1, Reward Function 1a
-|
-
-|
-
-|
-G1d -> G3: Scheduling V3
-G3a* : Reward Function 1a, Scheduling V3, Update = 18, Iterations = 100, 1 X RELU, MSE   - 10/10
-G3b : Reward Function 1a, Scheduling V3, Update = 18, Iterations = 100, 1 X RELU, HUBER -  9/10
+G4a  : Scheduling V1, Reward Function 1a, Update =  3, Iterations =  50, 1 X LeRELU, HUBER  - 7/10
+G4b  : Scheduling V1, Reward Function 1a, Update =  6, Iterations =  50, 1 X LeRELU, HUBER  - 6/10
+G4c  : Scheduling V1, Reward Function 1a, Update =  9, Iterations =  50, 1 X LeRELU, HUBER  - 
+G4d  : Scheduling V1, Reward Function 1a, Update = 12, Iterations =  50, 1 X LeRELU, HUBER  - 
+H1c2 : Scheduling V1, Reward Function 1a, Update = 18, Iterations =  50, 1 X LeRELU, HUBER  - 
 |
 |
-
+|==> RELU activations seems to work best with 6 months update rate
+|==> LeRELU activations seems to work best with 18 months update rate
+|==> I still suspect overfitting.
+|==> Try maturing a bit slower and later
 |
+|=> Scheduling V3
+|=> Change maturity time to 50 iterations.
+|=> Start with a lower EPSILON. Take longer to become greedy.
+|=> LR ~ 0.2e-4 @ EPSILON ~ 0.98
+|
+|
+|
+G3: Scheduling V3, Reward Function 1a, Update = 18, Iterations = 100, 1x RELU,
+|
+G3a* : Scheduling V3, Reward Function 1a, Update = 18, Iterations = 100, 1 X RELU, MSE   - 10/10
+G3b  : Scheduling V3, Reward Function 1a, Update = 18, Iterations = 100, 1 X RELU, HUBER -  9/10
+|
+|
+|
+|=> End the learning rate at a lower value at iteration=100
 |
 
 I1 - Scheduling V4, Reward Function 1c, 18 months,1xRELU,MSE   - 10/10
 I2 - Scheduling V4, Reward Function 1c, 6 months,1xRELU,MSE    - 8/10
 I3 - Scheduling V4, Reward Function 1c, 3 months,1xRELU,MSE    - 10/10
 I4 - Scheduling V4, Reward Function 1c, 1 months,1xRELU,MSE    - 10/10
-
+|
 J1 - Scheduling V4, Reward Function 1c, 18 months,1xRELU,Huber - 9/10
 J2 - Scheduling V4, Reward Function 1c, 6 months,1xRELU,Huber  - 10/10
 J3 - Scheduling V4, Reward Function 1c, 3 months,1xRELU,Huber  - 8/10

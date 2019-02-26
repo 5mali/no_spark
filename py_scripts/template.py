@@ -821,7 +821,7 @@ torch.save(dqn.eval_net.state_dict(), './models/'+MODELNAME)
 # print("***MEASURING PERFORMANCE OF THE MODEL***")
 results = np.empty(4)
 LOCATION = 'tokyo'
-for YEAR in np.arange(2000,2018):
+for YEAR in np.arange(2000,2019):
     capm      = CAPM(LOCATION,YEAR,shuffle=False, trainmode=False) #instantiate the CAPM class
     capm.eno  = ENO(LOCATION,YEAR, shuffle=False, day_balance=False) #instantiate the environment inside the CAPM class
     capm.HMAX = capm.eno.SMAX #maximum power output of solar cell is set in CAPM object using the value in ENO object

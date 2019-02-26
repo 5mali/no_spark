@@ -430,7 +430,7 @@ N_STATES            = 4 #number of state space parameter [batt, enp, henergy, fc
 
 
 HIDDEN_LAYER        = 50
-NO_OF_ITERATIONS    = 100
+NO_OF_ITERATIONS    = 5 
 GPU                 = False
 HELP                = 0.05
 
@@ -618,6 +618,7 @@ print('DEVICE: ', dqn.device)
 tic = datetime.now()
 
 for iteration in range(NO_OF_ITERATIONS):
+	print("Iteration: ", iteration)
 #     # EPSILON SCHEDULING
 #     e_slope = 5
 #     e_start = 0.5
@@ -679,8 +680,8 @@ for iteration in range(NO_OF_ITERATIONS):
 #     yr_record = np.delete(yr_record, 0, 0)     #remove the first row which is garbage
 #     hourly_yr_reward_rec = yr_record[:,2]      #extract reward information from the record array
 #     yr_reward_rec = hourly_yr_reward_rec[::24] #only consider terminal rewards
-
-    print('Iteration {}:  {}, {} '.format(iteration, LOCATION.upper(), YEAR))
+	
+# #     print('Iteration {}:  {}, {} '.format(iteration, LOCATION.upper(), YEAR))
 # #     print('\nEPSILON = {:6.3e}'.format(EPSILON))
 # #     for param_group in dqn.optimizer.param_groups:
 # #         print('LR = {:6.3e}'.format(param_group['lr']))

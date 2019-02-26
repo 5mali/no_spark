@@ -328,8 +328,8 @@ J5 - Scheduling V3, Reward Function 1c, Update =  1, Iterations = 100, 1xRELU, H
 N: calculate ENP before clipping
 N1 - Scheduling V3, Reward Function 1c, Update = 18, Iterations = 100, 1xLeRELU, HUBER  - 9/10
 N2 - Scheduling V3, Reward Function 1c, Update =  9, Iterations = 100, 1xLeRELU, HUBER  - 9/10
-N3 - Scheduling V3, Reward Function 1c, Update =  6, Iterations = 100, 1xLeRELU, HUBER  - /10
-N4 - Scheduling V3, Reward Function 1c, Update =  3, Iterations = 100, 1xLeRELU, HUBER  - /10
+N3 - Scheduling V3, Reward Function 1c, Update =  6, Iterations = 100, 1xLeRELU, HUBER  - 9/10
+N4 - Scheduling V3, Reward Function 1c, Update =  3, Iterations = 100, 1xLeRELU, HUBER  - 8/10
 N5 - Scheduling V3, Reward Function 1c, Update =  1, Iterations = 100, 1xLeRELU, HUBER  - /10
 |
 |-------> USELESS EXPERIMENT
@@ -337,8 +337,8 @@ N5 - Scheduling V3, Reward Function 1c, Update =  1, Iterations = 100, 1xLeRELU,
 |       M1 - Scheduling V3, Reward Function 1c, Update = 18, Iterations = 100, 1xLeRELU, HUBER  - 9/10
 |       M2 - Scheduling V3, Reward Function 1c, Update =  9, Iterations = 100, 1xLeRELU, HUBER  - 9/10
 |       M3 - Scheduling V3, Reward Function 1c, Update =  6, Iterations = 100, 1xLeRELU, HUBER  - 8/10
-|       M4 - Scheduling V3, Reward Function 1c, Update =  3, Iterations = 100, 1xLeRELU, HUBER  - /10
-|       M5 - Scheduling V3, Reward Function 1c, Update =  1, Iterations = 100, 1xLeRELU, HUBER  - /10
+|       M4 - Scheduling V3, Reward Function 1c, Update =  3, Iterations = 100, 1xLeRELU, HUBER  - 9/10
+|       M5 - Scheduling V3, Reward Function 1c, Update =  1, Iterations = 100, 1xLeRELU, HUBER  - 9/10
 |       
 |
 |

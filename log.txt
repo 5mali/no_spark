@@ -358,7 +358,7 @@ O1: WT_DECAY = 1e-5 - 8/10
 O2: WT_DECAY = 1e-4
 O3: WT_DECAY = 1e-3
 O4: WT_DECAY = 1e-2
-O5: WT_DECAY = 1e-1
+O5: WT_DECAY = 1e-1 - 2/10
 
 
 

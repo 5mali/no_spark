@@ -594,19 +594,7 @@ def stdize(s):
 
 #TRAIN 
 dqn = DQN()
-# for recording weights
-# oldfc1 = dqn.eval_net.fc1.weight.data.cpu().numpy().flatten()
-# old2fc1 = oldfc1
 
-# # oldfc2 = dqn.eval_net.fc2.weight.data.cpu().numpy().flatten()
-# # old2fc2 = oldfc2
-
-# # oldfc3 = dqn.eval_net.fc3.weight.data.cpu().numpy().flatten()
-# # old2fc3 = oldfc3
-
-# oldout = dqn.eval_net.fc_out.weight.data.cpu().numpy().flatten()
-# old2out = oldout
-########################################
 
 change_hr = 0 #when dqn target_net is updated by eval_net
 avg_reward_rec = [] #record the yearly average rewards over the entire duration of training
@@ -618,163 +606,84 @@ print('DEVICE: ', dqn.device)
 tic = datetime.now()
 
 for iteration in range(NO_OF_ITERATIONS):
-	print("Iteration: ", iteration)
-#     # EPSILON SCHEDULING
-#     e_slope = 5
-#     e_start = 0.5
-#     e_inflection_point = 50
-#     EPSILON = e_start + (1-e_start)/(1 + np.exp(-(iteration-e_inflection_point)/e_slope))
+# 	print("Iteration: ", iteration)
+    # EPSILON SCHEDULING
+    e_slope = 5
+    e_start = 0.5
+    e_inflection_point = 50
+    EPSILON = e_start + (1-e_start)/(1 + np.exp(-(iteration-e_inflection_point)/e_slope))
 
-#     # LR SCEHDULING
-#     lr_slope = 3
-#     lr_start = 0
-#     lr_inflection_point = 2
-#     if iteration <=50:
-#         lrate =  (lr_start + (1-lr_start)/(1 + np.exp(-(iteration-lr_inflection_point)/lr_slope)))*1e-4
-#     else:
-#         lrate = 0.95*(lrate-lrate*0.1)+0.2*1e-5
-#     dqn.optimizer = torch.optim.Adam(dqn.eval_net.parameters(), lr=lrate)
-# #     dqn.optimizer = torch.optim.Adam(dqn.eval_net.parameters(), lr=lrate, weight_decay=WT_DECAY)
+    # LR SCEHDULING
+    lr_slope = 3
+    lr_start = 0
+    lr_inflection_point = 2
+    if iteration <=50:
+        lrate =  (lr_start + (1-lr_start)/(1 + np.exp(-(iteration-lr_inflection_point)/lr_slope)))*1e-4
+    else:
+        lrate = 0.95*(lrate-lrate*0.1)+0.2*1e-5
+    dqn.optimizer = torch.optim.Adam(dqn.eval_net.parameters(), lr=lrate)
+#     dqn.optimizer = torch.optim.Adam(dqn.eval_net.parameters(), lr=lrate, weight_decay=WT_DECAY)
 
-#     LOCATION    = 'tokyo'#random.choice(['tokyo','wakkanai','minamidaito'])
-#     YEAR        = random.choice(np.arange(2000,2010))
+    LOCATION    = 'tokyo'#random.choice(['tokyo','wakkanai','minamidaito'])
+    YEAR        = random.choice(np.arange(2000,2010))
     
-#     capm        = CAPM(LOCATION,YEAR,shuffle=False, trainmode=False) #instantiate the CAPM class
-#     capm.eno    = ENO(LOCATION,YEAR, shuffle=False, day_balance=False) #instantiate the environment inside the CAPM class
-#     capm.HMAX   = capm.eno.SMAX #maximum power output of solar cell is set in CAPM object using the value in ENO object
+    capm        = CAPM(LOCATION,YEAR,shuffle=False, trainmode=False) #instantiate the CAPM class
+    capm.eno    = ENO(LOCATION,YEAR, shuffle=False, day_balance=False) #instantiate the environment inside the CAPM class
+    capm.HMAX   = capm.eno.SMAX #maximum power output of solar cell is set in CAPM object using the value in ENO object
 
 
-#     s, r, day_end, year_end = capm.reset()
-#     yr_record      = np.empty(4)
-#     transition_rec = np.zeros((capm.eno.TIME_STEPS, N_STATES * 2 + 2)) #record all the transition in one day
+    s, r, day_end, year_end = capm.reset()
+    yr_record      = np.empty(4)
+    transition_rec = np.zeros((capm.eno.TIME_STEPS, N_STATES * 2 + 2)) #record all the transition in one day
 
-#     while True:
-#         a = dqn.choose_action(stdize(s))
-#         yr_record = np.vstack((yr_record, [s[0],s[2],r, a]))
+    while True:
+        a = dqn.choose_action(stdize(s))
+        yr_record = np.vstack((yr_record, [s[0],s[2],r, a]))
 
-#         # take action
-#         s_, r, day_end, year_end = capm.step(a)
+        # take action
+        s_, r, day_end, year_end = capm.step(a)
         
-#         temp_transitions                = np.hstack((stdize(s), [a, r], stdize(s_)))
-#         transition_rec[capm.eno.hr-1,:] = temp_transitions
+        temp_transitions                = np.hstack((stdize(s), [a, r], stdize(s_)))
+        transition_rec[capm.eno.hr-1,:] = temp_transitions
 
-#         if (day_end):
-#             transition_rec[:,5] += r #broadcast reward to all states
-#             decay_factor         = [i for i in (LAMBDA**n for n in reversed(range(0, capm.eno.TIME_STEPS)))]
-#             transition_rec[:,5]  = transition_rec[:,5] * decay_factor #decay reward proportionately
-#             dqn.store_day_transition(transition_rec)
+        if (day_end):
+            transition_rec[:,5] += r #broadcast reward to all states
+            decay_factor         = [i for i in (LAMBDA**n for n in reversed(range(0, capm.eno.TIME_STEPS)))]
+            transition_rec[:,5]  = transition_rec[:,5] * decay_factor #decay reward proportionately
+            dqn.store_day_transition(transition_rec)
 
-#         if dqn.memory_counter > MEMORY_CAPACITY:
-#             dqn.learn()
+        if dqn.memory_counter > MEMORY_CAPACITY:
+            dqn.learn()
 
-#         if dqn.nettoggle:
-#             change_hr = capm.eno.day*24+capm.eno.hr #to mark when the DQN is updated.
-#             dqn.nettoggle = not dqn.nettoggle
+        if dqn.nettoggle:
+            change_hr = capm.eno.day*24+capm.eno.hr #to mark when the DQN is updated.
+            dqn.nettoggle = not dqn.nettoggle
 
-#         if (year_end):
-#             break
+        if (year_end):
+            break
 
-#         # transition to new state
-#         s = s_
+        # transition to new state
+        s = s_
 
-#     yr_record = np.delete(yr_record, 0, 0)     #remove the first row which is garbage
-#     hourly_yr_reward_rec = yr_record[:,2]      #extract reward information from the record array
-#     yr_reward_rec = hourly_yr_reward_rec[::24] #only consider terminal rewards
+    yr_record = np.delete(yr_record, 0, 0)     #remove the first row which is garbage
+    hourly_yr_reward_rec = yr_record[:,2]      #extract reward information from the record array
+    yr_reward_rec = hourly_yr_reward_rec[::24] #only consider terminal rewards
 	
-# #     print('Iteration {}:  {}, {} '.format(iteration, LOCATION.upper(), YEAR))
-# #     print('\nEPSILON = {:6.3e}'.format(EPSILON))
-# #     for param_group in dqn.optimizer.param_groups:
-# #         print('LR = {:6.3e}'.format(param_group['lr']))
-# #     print("Average Terminal Reward  = {:6.3f}".format(np.mean(yr_reward_rec)))
-# #     print("Day Violations           = {:6d}".format(capm.violation_counter))
-# #     print("Battery Limit Violations = {:6d}".format(capm.batt_violations))
-# #     print("Action MEAN              = {:6.3f}".format(np.mean(yr_record[:,-1] + 1)))
-# #     print("Action STD DEV           = {:6.3f}".format(np.std(yr_record[:,-1] + 1)))
+    print('Iteration {}:  {}, {} '.format(iteration, LOCATION.upper(), YEAR))
+#     print('\nEPSILON = {:6.3e}'.format(EPSILON))
+#     for param_group in dqn.optimizer.param_groups:
+#         print('LR = {:6.3e}'.format(param_group['lr']))
+#     print("Average Terminal Reward  = {:6.3f}".format(np.mean(yr_reward_rec)))
+#     print("Day Violations           = {:6d}".format(capm.violation_counter))
+#     print("Battery Limit Violations = {:6d}".format(capm.batt_violations))
+#     print("Action MEAN              = {:6.3f}".format(np.mean(yr_record[:,-1] + 1)))
+#     print("Action STD DEV           = {:6.3f}".format(np.std(yr_record[:,-1] + 1)))
    
-#     # Log the average reward in avg_reward_rec to plot later in the learning curve graph figure
-#     avg_reward_rec      = np.append(avg_reward_rec, np.mean(yr_reward_rec))
-#     day_violation_rec   = np.append(day_violation_rec, capm.violation_counter)
-#     batt_violation_rec  = np.append(batt_violation_rec, capm.batt_violations)
+    # Log the average reward in avg_reward_rec to plot later in the learning curve graph figure
+    avg_reward_rec      = np.append(avg_reward_rec, np.mean(yr_reward_rec))
+    day_violation_rec   = np.append(day_violation_rec, capm.violation_counter)
+    batt_violation_rec  = np.append(batt_violation_rec, capm.batt_violations)
 
-# # ###########################################################################################
-# # ###########################################################################################
-# # #   PLOT battery levels, hourly rewards and the weights
-
-# #     fig = plt.figure(figsize=(24,3))
-# #     TIME_STEPS = capm.eno.TIME_STEPS
-# #     NO_OF_DAYS = capm.eno.NO_OF_DAYS
-# #     DAY_SPACING = 15
-# #     TICK_SPACING = TIME_STEPS*DAY_SPACING
-# #     #plot battery
-    
-# #     ax = fig.add_subplot(111)
-# #     ax.plot(np.arange(0,TIME_STEPS*NO_OF_DAYS),yr_record[:,0],'r')
-# #     ax.set_ylim([0,1])
-# #     ax.axvline(x=change_hr)
-# #     ax.xaxis.set_major_locator(ticker.MultipleLocator(TICK_SPACING))
-
-# #     #plot hourly reward
-# #     ax0 = ax.twinx()
-# #     ax0.plot(hourly_yr_reward_rec, color='y',alpha=0.4)
-# #     ax0.set_ylim(-7,4)
-# #     plt.show()
-
-# #     fig = plt.figure(figsize=(18,3))
-    
-# #     ax1 = fig.add_subplot(131)
-# #     newfc1 = dqn.eval_net.fc1.weight.data.cpu().numpy().flatten()
-# #     xaxis = np.arange(0,newfc1.shape[0])
-# #     ax1.bar(xaxis, old2fc1, color='b', alpha = 0.3)
-# #     ax1.bar(xaxis, oldfc1,  color='b', alpha = 0.5)
-# #     ax1.bar(xaxis, newfc1,  color='b', alpha = 1.0)
-# # #     ax1.plot(xaxis, old2fc1, color='b', alpha = 0.2)
-# # #     ax1.plot(xaxis, oldfc1,  color='b', alpha = 0.3)
-# # #     ax1.plot(xaxis, newfc1,  color='b', alpha = 0.4)
-# # #     ax1.hist(old2fc1, density = False, bins=HIDDEN_LAYER, rwidth=0.95, color='b' , alpha = 0.1 )
-# # #     ax1.hist(oldfc1,  density = False, bins=HIDDEN_LAYER, rwidth=0.95, color='b' , alpha = 0.3 )
-# # #     ax1.hist(newfc1,  density = False, bins=HIDDEN_LAYER, rwidth=0.95, color='b' , alpha = 0.6 )
-# #     old2fc1 = oldfc1
-# #     oldfc1 = newfc1
-    
-# # #     ax2 = fig.add_subplot(132)
-# # #     newfc2 = dqn.eval_net.fc2.weight.data.cpu().numpy().flatten()
-# # #     xaxis = np.arange(0,newfc2.shape[0])
-# # #     ax2.bar(xaxis, old2fc2, color='y', alpha = 0.3)
-# # #     ax2.bar(xaxis, oldfc2,  color='y', alpha = 0.5)
-# # #     ax2.bar(xaxis, newfc2,  color='y', alpha = 1.0)
-# # # #     ax2.plot(old2fc2,color='y', alpha=0.4)
-# # # #     ax2.plot(oldfc2,color='y',alpha = 0.7)
-# # # #     ax2.plot(newfc2,color='y')
-# # #     old2fc2 = oldfc2
-# # #     oldfc2 = newfc2
-    
-# # #     ax3 = fig.add_subplot(143)
-# # #     newfc3 = dqn.eval_net.fc3.weight.data.cpu().numpy().flatten()
-# # #     ax3.plot(old2fc3,color='y', alpha=0.4)
-# # #     ax3.plot(oldfc3,color='y',alpha = 0.7)
-# # #     ax3.plot(newfc3,color='y')
-# # #     old2fc3 = oldfc3
-# # #     oldfc3 = newfc3
-    
-# #     axO = fig.add_subplot(133)
-# #     newout = dqn.eval_net.fc_out.weight.data.cpu().numpy().flatten()
-# #     xaxis = np.arange(0,newout.shape[0])
-# #     axO.bar(xaxis, old2out, color='g', alpha = 0.3)
-# #     axO.bar(xaxis, oldout,  color='g', alpha = 0.5)
-# #     axO.bar(xaxis, newout,  color='g', alpha = 1.0)
-# # #     axO.plot(old2out, color='g', alpha = 0.2)
-# # #     axO.plot(oldout,  color='g', alpha = 0.3)
-# # #     axO.plot(newout,  color='g', alpha = 0.4)
-# # #     axO.hist(old2out, density = False, bins=HIDDEN_LAYER, rwidth=0.95, color='g' , alpha = 0.1)
-# # #     axO.hist(oldout,  density = False, bins=HIDDEN_LAYER, rwidth=0.95, color='g' , alpha = 0.3)
-# # #     axO.hist(newout,  density = False, bins=HIDDEN_LAYER, rwidth=0.95, color='g' , alpha = 0.6)
-# #     old2out = oldout
-# #     oldout = newout
-    
-# #     fig.tight_layout()
-# #     plt.show()
-# # ###########################################################################################
-# # ###########################################################################################
 
     # End of training
 
@@ -786,33 +695,6 @@ print('Train time: {}\n'.format(datetime.now() - tic))
 torch.save(dqn.eval_net.state_dict(), './models/'+MODELNAME)
 
 
-# In[ ]:
-
-
-# ###########################################################################################
-# ###########################################################################################
-# # Plot the average reward log and the violation record log
-
-# fig = plt.figure(figsize=(9,3))
-
-# ax1 = fig.add_subplot(111)
-# ax1.set_ylabel("Terminal Reward", color = 'b')
-# ax1.set_ylim([-10,2]);
-# ax1.plot(avg_reward_rec,'b')
-# ax1.tick_params(axis='y', colors='b')
-
-# ax2 = ax1.twinx()
-# ax2.set_ylabel("Violations",color = 'r')
-# ax2.plot(day_violation_rec,'r')
-# ax2.plot(batt_violation_rec,'r',alpha=0.4)
-# for xpt in np.argwhere(day_violation_rec<1):
-#     ax2.axvline(x=xpt,color='g')
-# ax2.set_ylim([0,50]);
-# ax2.tick_params(axis='y', colors='r')
-# fig.tight_layout()
-
-# ###########################################################################################
-# ###########################################################################################
 
 
 # In[ ]:

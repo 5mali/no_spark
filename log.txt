@@ -359,9 +359,12 @@ O2: WT_DECAY = 1e-4 - 8/10
 O3: WT_DECAY = 1e-3 - 6/10
 O4: WT_DECAY = 1e-2 - 0/10
 O5: WT_DECAY = 1e-1 - 2/10
-O6: WT_DECAY = 1e-6 -  /10
-O7: WT_DECAY = 1e-7 -  /10
-O8: WT_DECAY = 1e-8 -  /10
+O6: WT_DECAY = 1e-6 - 6/10
+O7: WT_DECAY = 1e-7 - 7/10
+O8: WT_DECAY = 1e-8 - 9/10
+|
+|=> L2 REgularization does not increase performance
+|
 |
 |
 |===========USING I1 AS CHECKPOINT==============|

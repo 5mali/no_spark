@@ -291,26 +291,26 @@ G3c  : Scheduling V3, Reward Function 1a, Update = 18, Iterations = 100, 1 X LeR
 |=> calculate enp before clipping battery
 |=> negative rewards have download slope instead of flattenning out.
 |
-|
-I1 - Scheduling V3, Reward Function 1c, Update = 18, Iterations = 100, 1xRELU,MSE  - 10/10
-I5 - Scheduling V3, Reward Function 1c, Update =  9, Iterations = 100, 1xRELU,MSE  - 10/10
+|      
+I1 - Scheduling V3, Reward Function 1c, Update = 18, Iterations = 100, 1xRELU,MSE  - 10/10 (9/10) -1 BEST SEED:4,6,1,7
+I5 - Scheduling V3, Reward Function 1c, Update =  9, Iterations = 100, 1xRELU,MSE  - 10/10 (9/10) -4
 I2 - Scheduling V3, Reward Function 1c, Update =  6, Iterations = 100, 1xRELU,MSE  -  8/10
-I3 - Scheduling V3, Reward Function 1c, Update =  3, Iterations = 100, 1xRELU,MSE  - 10/10
-I4 - Scheduling V3, Reward Function 1c, Update =  1, Iterations = 100, 1xRELU,MSE  - 10/10
+I3 - Scheduling V3, Reward Function 1c, Update =  3, Iterations = 100, 1xRELU,MSE  - 10/10 (3/10)
+I4 - Scheduling V3, Reward Function 1c, Update =  1, Iterations = 100, 1xRELU,MSE  - 10/10 (9/10) -2
 |
 |=> RELU activations with MSE LOSS give good performance
 |
 |
 |
 J: calculate ENP before clipping
-J1 - Scheduling V3, Reward Function 1c, Update = 18, Iterations = 100, 1xRELU, HUBER  - 9/10 = J1_COPY1 - 9/10
-J2 - Scheduling V3, Reward Function 1c, Update =  9, Iterations = 100, 1xRELU, HUBER  - 9/10 
-J3 - Scheduling V3, Reward Function 1c, Update =  6, Iterations = 100, 1xRELU, HUBER  - /10 = J2_COPY2 - 10/10
-J4 - Scheduling V3, Reward Function 1c, Update =  3, Iterations = 100, 1xRELU, HUBER  - /10 = J3_COPY3 - 8/10
-J5 - Scheduling V3, Reward Function 1c, Update =  1, Iterations = 100, 1xRELU, HUBER  - /10 
+J1 - Scheduling V3, Reward Function 1c, Update = 18, Iterations = 100, 1xRELU, HUBER  -  9/10
+J2 - Scheduling V3, Reward Function 1c, Update =  9, Iterations = 100, 1xRELU, HUBER  -  9/10 
+J3 - Scheduling V3, Reward Function 1c, Update =  6, Iterations = 100, 1xRELU, HUBER  - 10/10 (7/10)
+J4 - Scheduling V3, Reward Function 1c, Update =  3, Iterations = 100, 1xRELU, HUBER  -  8/10 
+J5 - Scheduling V3, Reward Function 1c, Update =  1, Iterations = 100, 1xRELU, HUBER  - 10/10 (8/10)
 |
 |
-|=> 
+|=> RELU activations with HUBER LOSS also give good performance. A tad bit less than MSE loss
 |
 |
 |
@@ -330,7 +330,7 @@ N1 - Scheduling V3, Reward Function 1c, Update = 18, Iterations = 100, 1xLeRELU,
 N2 - Scheduling V3, Reward Function 1c, Update =  9, Iterations = 100, 1xLeRELU, HUBER  - 9/10
 N3 - Scheduling V3, Reward Function 1c, Update =  6, Iterations = 100, 1xLeRELU, HUBER  - 9/10
 N4 - Scheduling V3, Reward Function 1c, Update =  3, Iterations = 100, 1xLeRELU, HUBER  - 8/10
-N5 - Scheduling V3, Reward Function 1c, Update =  1, Iterations = 100, 1xLeRELU, HUBER  - /10
+N5 - Scheduling V3, Reward Function 1c, Update =  1, Iterations = 100, 1xLeRELU, HUBER  - 9/10
 |
 |-------> USELESS EXPERIMENT
 |       M : calculate ENP AFTER clipping
@@ -355,11 +355,20 @@ K4 - Scheduling V3, Reward Function 1c, Update =  1, Iterations = 100, 1xSIGMOID
 |
 O: Scheduling V3, Reward Function 1c, Update = 18, Iterations = 100, 1xRELU,MSE
 O1: WT_DECAY = 1e-5 - 8/10
-O2: WT_DECAY = 1e-4
+O2: WT_DECAY = 1e-4 - 8/10
 O3: WT_DECAY = 1e-3
 O4: WT_DECAY = 1e-2
 O5: WT_DECAY = 1e-1 - 2/10
-
+|
+|
+|===========USING I1 AS CHECKPOINT==============|
+|
+|
+P: Scheduling V3, Reward Function 1c, Update = 18, Iterations = 100, 1xRELU,MSE, WT_DECAY=None
+P1 - WIDTH = 20
+P2 - WIDTH = 50 = I1 - 10/10
+P3 - WIDTH = 100
+P4 - WIDTH = 200
 
 
 

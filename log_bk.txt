@@ -383,11 +383,13 @@ P4 - WIDTH = 200 = 9/10
 |
 Q: Removing extra violations in reward function
 Scheduling V3, Reward Function 1c, Update = 18, Iterations = 100, 1xRELU,MSE, WT_DECAY=None
-|
-|
-|
-Q1 - No violations at all - (9/10)
+<<<<<<< Updated upstream
+Q1 - No violations at all (9/10)
+Q2 - BATT_LIM_LO and BATT_LIM_HI have equal violations
+=======
+Q1 - No violations at all
 Q2 - DAY Violations + BATTLIM_LO/BATTLIM_HI have equal penalties
+>>>>>>> Stashed changes
 |
 |
 R: Stricter ENP margins

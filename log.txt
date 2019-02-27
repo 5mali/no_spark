@@ -383,7 +383,7 @@ P4 - WIDTH = 200 = 9/10
 |
 Q: Removing extra violations in reward function
 Scheduling V3, Reward Function 1c, Update = 18, Iterations = 100, 1xRELU,MSE, WT_DECAY=None
-Q1 - No violations at all
+Q1 - No violations at all (9/10)
 Q2 - BATT_LIM_LO and BATT_LIM_HI have equal violations
 |
 |

@@ -370,11 +370,31 @@ O8: WT_DECAY = 1e-8 - 9/10
 |===========USING I1 AS CHECKPOINT==============|
 |
 |
-P: Scheduling V3, Reward Function 1c, Update = 18, Iterations = 100, 1xRELU,MSE, WT_DECAY=None
+P: Increasing WIDTH 
+Scheduling V3, Reward Function 1c, Update = 18, Iterations = 100, 1xRELU,MSE, WT_DECAY=None
 P1 - WIDTH = 20  = 8/10
 P2 - WIDTH = 50  = 10/10 = I1
 P3 - WIDTH = 100 = 10/10 (9/10)
 P4 - WIDTH = 200 = 9/10
+|
+|
+|=> Increasing WIDTH has little effect.
+|=> P3 seems as good as I1
+|
+Q: Removing extra violations in reward function
+Scheduling V3, Reward Function 1c, Update = 18, Iterations = 100, 1xRELU,MSE, WT_DECAY=None
+Q1 - No violations at all
+Q2 - BATT_LIM_LO and BATT_LIM_HI have equal violations
+|
+|
+R: Stricter ENP margins
+|
+|
+S: Longer Memory
+|
+|
+T: 
+
 
 
 

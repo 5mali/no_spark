@@ -63,7 +63,7 @@ os.environ['PYTHONHASHSEED'] = str(seed)
 # In[ ]:
 
 
-NAME       = 'TEMPLATE'
+NAME       = 'Q1'
 MODELNAME  = NAME + '_' + str(seed) + '.pt'
 print("\nMODEL : ", NAME)
 print("SEED  : ",seed_arg)
@@ -342,8 +342,8 @@ class CAPM (object):
         else:
             reward = -5*np.abs(self.enp/self.BMAX)+0.6
                 
-        if(self.day_violation_flag):
-            violation_penalty += 3    #penalty for violating battery limits anytime during the day
+#         if(self.day_violation_flag):
+#             violation_penalty += 3    #penalty for violating battery limits anytime during the day
         
         return (reward - violation_penalty)
     
@@ -368,9 +368,9 @@ class CAPM (object):
         
         if(self.batt < self.BLIM_LO or self.batt > self.BLIM_HI ):
             self.violation_flag = True #penalty for violating battery limits everytime it happens
-            reward -= 2
-            if(self.batt < self.BLIM_LO): #battery depletion is more fatal than battery overflow
-                reward -= 2
+#             reward -= 2
+#             if(self.batt < self.BLIM_LO): #battery depletion is more fatal than battery overflow
+#                 reward -= 2
             
         if(self.violation_flag):
             if(self.day_violation_flag == False): #penalty for violating battery limits anytime during the day - triggers once everyday

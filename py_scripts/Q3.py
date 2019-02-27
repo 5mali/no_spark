@@ -335,10 +335,8 @@ class CAPM (object):
     def rewardfn(self):
         violation_penalty = 0
         reward = 2 - 20*np.abs(self.enp)/self.BMAX
-                
 #         if(self.day_violation_flag):
 #             violation_penalty += 3    #penalty for violating battery limits anytime during the day
-        
         return (reward - violation_penalty)
     
     def step(self, action):
@@ -363,9 +361,9 @@ class CAPM (object):
         if(self.batt < self.BLIM_LO or self.batt > self.BLIM_HI ):
             self.violation_flag = True #penalty for violating battery limits everytime it happens
 #             reward -= 2
-            if(self.batt < self.BLIM_LO): #battery depletion is more fatal than battery overflow
+#             if(self.batt < self.BLIM_LO): #battery depletion is more fatal than battery overflow
 #                 reward -= 2
-            
+
         if(self.violation_flag):
             if(self.day_violation_flag == False): #penalty for violating battery limits anytime during the day - triggers once everyday
                 self.violation_counter += 1

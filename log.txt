@@ -387,7 +387,7 @@ Scheduling V3, Reward Function 1c, Update = 18, Iterations = 100, 1xRELU,MSE, WT
 |
 |
 Q1 - No violations at all - (9/10)
-Q2 - DAY Violations + BATTLIM_LO/BATTLIM_HI have equal penalties
+Q2 - DAY Violations + BATTLIM_LO/BATTLIM_HI have equal penalties (9/10)
 |
 |
 R: Stricter ENP margins

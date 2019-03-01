@@ -1,0 +1,10 @@
+Number of cores: 
+28
+Number of CPUS: 
+28
+Doing jobs: 
+test test1 test2
+***************
+test.py
+test1.py
+test2.py

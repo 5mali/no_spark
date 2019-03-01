@@ -63,12 +63,12 @@ os.environ['PYTHONHASHSEED'] = str(seed)
 # In[ ]:
 
 
-NAME       = 'xN1'
+NAME       = 'test1'
 MODELNAME  = NAME + '_' + str(seed) + '.pt'
 print("\nMODEL : ", NAME)
 print("SEED  : ",seed_arg)
 print("HOST  : ",socket.gethostname())
-
+print("START : ",datetime.now())
 # In[ ]:
 
 
@@ -430,7 +430,7 @@ N_STATES            = 4 #number of state space parameter [batt, enp, henergy, fc
 
 
 HIDDEN_LAYER        = 50
-NO_OF_ITERATIONS    = 5 
+NO_OF_ITERATIONS    = 2 
 GPU                 = False
 HELP                = 0.05
 

@@ -1,0 +1,120 @@
+
+MODEL :  test2
+SEED  :  0
+HOST  :  p100
+START :  2019-03-02 00:20:00.892186
+DEVICE:  cpu
+Iteration 0:  TOKYO, 2008 
+Iteration 1:  TOKYO, 2003 
+Train time: 0:01:31.417312
+
+YEAR	AVG_RWD		VIOLATIONS
+				DAY	BATT
+
+MODEL :  test2
+SEED  :  1
+HOST  :  p100
+START :  2019-03-02 00:20:00.894269
+DEVICE:  cpu
+Iteration 0:  TOKYO, 2003 
+Iteration 1:  TOKYO, 2007 
+Train time: 0:01:27.995456
+
+YEAR	AVG_RWD		VIOLATIONS
+				DAY	BATT
+
+MODEL :  test2
+SEED  :  2
+HOST  :  p100
+START :  2019-03-02 00:20:00.894214
+DEVICE:  cpu
+Iteration 0:  TOKYO, 2003 
+Iteration 1:  TOKYO, 2009 
+Train time: 0:01:40.916692
+
+YEAR	AVG_RWD		VIOLATIONS
+				DAY	BATT
+
+MODEL :  test2
+SEED  :  3
+HOST  :  p100
+START :  2019-03-02 00:20:00.892278
+DEVICE:  cpu
+Iteration 0:  TOKYO, 2002 
+Iteration 1:  TOKYO, 2001 
+Train time: 0:01:40.267561
+
+YEAR	AVG_RWD		VIOLATIONS
+				DAY	BATT
+
+MODEL :  test2
+SEED  :  4
+HOST  :  p100
+START :  2019-03-02 00:20:00.892895
+DEVICE:  cpu
+Iteration 0:  TOKYO, 2002 
+Iteration 1:  TOKYO, 2004 
+Train time: 0:01:29.582220
+
+YEAR	AVG_RWD		VIOLATIONS
+				DAY	BATT
+
+MODEL :  test2
+SEED  :  5
+HOST  :  p100
+START :  2019-03-02 00:20:00.892450
+DEVICE:  cpu
+Iteration 0:  TOKYO, 2009 
+Iteration 1:  TOKYO, 2006 
+Train time: 0:01:33.109775
+
+YEAR	AVG_RWD		VIOLATIONS
+				DAY	BATT
+
+MODEL :  test2
+SEED  :  6
+HOST  :  p100
+START :  2019-03-02 00:20:00.892650
+DEVICE:  cpu
+Iteration 0:  TOKYO, 2009 
+Iteration 1:  TOKYO, 2002 
+Train time: 0:01:37.438107
+
+YEAR	AVG_RWD		VIOLATIONS
+				DAY	BATT
+
+MODEL :  test2
+SEED  :  7
+HOST  :  p100
+START :  2019-03-02 00:20:00.892927
+DEVICE:  cpu
+Iteration 0:  TOKYO, 2004 
+Iteration 1:  TOKYO, 2009 
+Train time: 0:01:11.117293
+
+YEAR	AVG_RWD		VIOLATIONS
+				DAY	BATT
+
+MODEL :  test2
+SEED  :  8
+HOST  :  p100
+START :  2019-03-02 00:20:00.892915
+DEVICE:  cpu
+Iteration 0:  TOKYO, 2000 
+Iteration 1:  TOKYO, 2008 
+Train time: 0:01:30.375738
+
+YEAR	AVG_RWD		VIOLATIONS
+				DAY	BATT
+
+MODEL :  test2
+SEED  :  9
+HOST  :  p100
+START :  2019-03-02 00:20:00.893034
+DEVICE:  cpu
+Iteration 0:  TOKYO, 2006 
+Iteration 1:  TOKYO, 2009 
+Train time: 0:01:41.149129
+
+YEAR	AVG_RWD		VIOLATIONS
+				DAY	BATT

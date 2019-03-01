@@ -1,0 +1,120 @@
+
+MODEL :  test
+SEED  :  0
+HOST  :  p100
+START :  2019-03-02 00:20:00.892981
+DEVICE:  cpu
+Iteration 0:  TOKYO, 2008 
+Iteration 1:  TOKYO, 2003 
+Train time: 0:01:40.322232
+
+YEAR	AVG_RWD		VIOLATIONS
+				DAY	BATT
+
+MODEL :  test
+SEED  :  1
+HOST  :  p100
+START :  2019-03-02 00:20:00.894087
+DEVICE:  cpu
+Iteration 0:  TOKYO, 2003 
+Iteration 1:  TOKYO, 2007 
+Train time: 0:01:34.537512
+
+YEAR	AVG_RWD		VIOLATIONS
+				DAY	BATT
+
+MODEL :  test
+SEED  :  2
+HOST  :  p100
+START :  2019-03-02 00:20:00.892188
+DEVICE:  cpu
+Iteration 0:  TOKYO, 2003 
+Iteration 1:  TOKYO, 2009 
+Train time: 0:01:29.779907
+
+YEAR	AVG_RWD		VIOLATIONS
+				DAY	BATT
+
+MODEL :  test
+SEED  :  3
+HOST  :  p100
+START :  2019-03-02 00:20:00.893093
+DEVICE:  cpu
+Iteration 0:  TOKYO, 2002 
+Iteration 1:  TOKYO, 2001 
+Train time: 0:01:36.089857
+
+YEAR	AVG_RWD		VIOLATIONS
+				DAY	BATT
+
+MODEL :  test
+SEED  :  4
+HOST  :  p100
+START :  2019-03-02 00:20:00.892151
+DEVICE:  cpu
+Iteration 0:  TOKYO, 2002 
+Iteration 1:  TOKYO, 2004 
+Train time: 0:01:24.766646
+
+YEAR	AVG_RWD		VIOLATIONS
+				DAY	BATT
+
+MODEL :  test
+SEED  :  5
+HOST  :  p100
+START :  2019-03-02 00:20:00.894200
+DEVICE:  cpu
+Iteration 0:  TOKYO, 2009 
+Iteration 1:  TOKYO, 2006 
+Train time: 0:01:32.209146
+
+YEAR	AVG_RWD		VIOLATIONS
+				DAY	BATT
+
+MODEL :  test
+SEED  :  6
+HOST  :  p100
+START :  2019-03-02 00:20:00.894298
+DEVICE:  cpu
+Iteration 0:  TOKYO, 2009 
+Iteration 1:  TOKYO, 2002 
+Train time: 0:01:26.081063
+
+YEAR	AVG_RWD		VIOLATIONS
+				DAY	BATT
+
+MODEL :  test
+SEED  :  7
+HOST  :  p100
+START :  2019-03-02 00:20:00.893104
+DEVICE:  cpu
+Iteration 0:  TOKYO, 2004 
+Iteration 1:  TOKYO, 2009 
+Train time: 0:01:23.088739
+
+YEAR	AVG_RWD		VIOLATIONS
+				DAY	BATT
+
+MODEL :  test
+SEED  :  8
+HOST  :  p100
+START :  2019-03-02 00:20:00.894318
+DEVICE:  cpu
+Iteration 0:  TOKYO, 2000 
+Iteration 1:  TOKYO, 2008 
+Train time: 0:01:33.604439
+
+YEAR	AVG_RWD		VIOLATIONS
+				DAY	BATT
+
+MODEL :  test
+SEED  :  9
+HOST  :  p100
+START :  2019-03-02 00:20:00.894348
+DEVICE:  cpu
+Iteration 0:  TOKYO, 2006 
+Iteration 1:  TOKYO, 2009 
+Train time: 0:01:35.170811
+
+YEAR	AVG_RWD		VIOLATIONS
+				DAY	BATT

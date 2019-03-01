@@ -1,10 +1,10 @@
 #!/bin/bash
 
 #SBATCH --job-name=batch_run
-#SBATCH --output=batch_run.out
+#SBATCH --output=batch_run_T2.out
 #SBATCH -p p
 #SBATCH -N 1
-#SBATCH --cpus-per-task 30
+#SBATCH --cpus-per-task 10
 source activate eno
 srun echo "Number of cores: "
 srun parallel --number-of-cores

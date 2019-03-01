@@ -63,7 +63,7 @@ os.environ['PYTHONHASHSEED'] = str(seed)
 # In[ ]:
 
 
-NAME       = 'Q3'
+NAME       = 'S3'
 MODELNAME  = NAME + '_' + str(seed) + '.pt'
 print("\nMODEL : ", NAME)
 print("SEED  : ",seed_arg)
@@ -416,7 +416,7 @@ EPSILON             = 0.9               # greedy policy
 GAMMA               = 0.9                 # reward discount
 LAMBDA              = 0.95                # parameter decay
 TARGET_REPLACE_ITER = 24*7*4*18    # target update frequency (every two months)
-MEMORY_CAPACITY     = 24*7*4*12*2      # store upto six month worth of memory   
+MEMORY_CAPACITY     = 24*7*4*12*3      # store upto six month worth of memory   
 
 N_ACTIONS           = 10 #no. of duty cycles (0,1,2,3,4)
 N_STATES            = 4 #number of state space parameter [batt, enp, henergy, fcast]

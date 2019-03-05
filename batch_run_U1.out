@@ -1,21 +1,13 @@
 Number of cores: 
-10
+2
 Number of CPUS: 
-10
+2
 Doing jobs: 
-T1
+U1
 ***************
 srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
-slurmstepd-p101: error: *** STEP 165727.5 ON p101 CANCELLED AT 2019-03-02T01:38:39 ***
-slurmstepd-p101: error: *** JOB 165727 ON p101 CANCELLED AT 2019-03-02T01:38:39 ***
+slurmstepd-p100: error: *** STEP 165821.5 ON p100 CANCELLED AT 2019-03-02T19:07:57 ***
+slurmstepd-p100: error: *** JOB 165821 ON p100 CANCELLED AT 2019-03-02T19:07:57 ***
 parallel: SIGTERM received. No new jobs will be started.
 parallel: Waiting for these 1 jobs to finish. Send SIGTERM again to stop now.
-parallel: ./run_python_script.sh T1
-S1.py
-S3.py
-S4.py
-S2.py
-S3.py
-S2.py
-S4.py
-S1.py
+parallel: ./run_python_script.sh U1

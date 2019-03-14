@@ -391,10 +391,10 @@ Q3 - Reward FUnction 1d, No violations                             - (10/10)
 Q4 - Reward FUnction 1d, Day violations + BATTLIM_LO > BATTLIM_HI  - (8/10)
 |
 S: Reward Function 1d, No violations, Change Memory
-S1: Memory = 6 months
-S2: Memory = 1 year
-S3: Memory = 3 years
-S4: Memory = 4 years
+S1: Memory = 6 months - (9/10)
+S2: Memory = 1 year   - (9/10)
+S3: Memory = 3 years  - (10/10)
+S4: Memory = 4 years  - (9/10)
 |
 
 |
